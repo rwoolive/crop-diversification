@@ -1,0 +1,4 @@
+"","Chisq","Df","Pr(>Chisq)"
+"Cover",154.57,4,0
+"Cropping.system",0.859,3,0.835
+"Cover:Cropping.system",4.906,12,0.961

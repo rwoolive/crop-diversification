@@ -1,0 +1,31 @@
+,MATC,MAPmm,Texture,Suborder,SOC
+baseline,15.74,1437,T3,S3,0.9409
+No cover,15.74,1437,T3,S3,0.9439375
+Wheat,15.74,1437,T3,S3,0.9634375
+Clover,15.74,1437,T3,S3,0.9696875
+Wheat-Clover,15.74,1437,T3,S3,1.015125
+SHM,15.74,1437,T3,S3,1.011895833
+Corn-Corn-Corn,15.74,1437,T3,S3,1.003666667
+Soybean-Soybean-Soybean,15.74,1437,T3,S3,0.9531
+Corn-Soybean-Corn,15.74,1437,T3,S3,1.004816667
+Corn-Cotton-Soybean,15.74,1437,T3,S3,0.961683333
+No cover_Corn-Corn-Corn,15.74,1437,T3,S3,0.984166667
+No cover_Soybean-Soybean-Soybean,15.74,1437,T3,S3,0.860083333
+No cover_Corn-Soybean-Corn,15.74,1437,T3,S3,0.956416667
+No cover_Corn-Cotton-Soybean,15.74,1437,T3,S3,0.975083333
+Wheat_Corn-Corn-Corn,15.74,1437,T3,S3,0.997833333
+Wheat_Soybean-Soybean-Soybean,15.74,1437,T3,S3,0.959416667
+Wheat_Corn-Soybean-Corn,15.74,1437,T3,S3,0.957416667
+Wheat_Corn-Cotton-Soybean,15.74,1437,T3,S3,0.939083333
+Clover_Corn-Corn-Corn,15.74,1437,T3,S3,1.01
+Clover_Soybean-Soybean-Soybean,15.74,1437,T3,S3,0.941666667
+Clover_Corn-Soybean-Corn,15.74,1437,T3,S3,1.001916667
+Clover_Corn-Cotton-Soybean,15.74,1437,T3,S3,0.925166667
+Wheat-Clover_Corn-Corn-Corn,15.74,1437,T3,S3,0.99525
+Wheat-Clover_Soybean-Soybean-Soybean,15.74,1437,T3,S3,1.015916667
+Wheat-Clover_Corn-Soybean-Corn,15.74,1437,T3,S3,1.076
+Wheat-Clover_Corn-Cotton-Soybean,15.74,1437,T3,S3,0.973333333
+SHM_Corn-Corn-Corn,15.74,1437,T3,S3,1.031083333
+SHM_Soybean-Soybean-Soybean,15.74,1437,T3,S3,0.988416667
+SHM_Corn-Soybean-Corn,15.74,1437,T3,S3,1.032333333
+SHM_Corn-Cotton-Soybean,15.74,1437,T3,S3,0.99575

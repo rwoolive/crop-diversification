@@ -1,0 +1,24 @@
+﻿Column,Description
+Plot.numbers,Group of plots pooled for soil analysis
+Rep,"Blocking code: 1, 2, 3, 4"
+Depth,"Depth of soil sample: 0-10, 10-20, 20-30 cm"
+Year,Year of collection
+Season,"Spring, Summer, Autumn"
+Cropping.system,Sequence of cash crops across the three-year period (whole plot)
+sand,percentage of sand
+silt,percentage of silt
+clay,percentage of clay
+POC,g of particulate organic carbon per kg dry soil
+P,mg/kg
+K,mg/kg
+Ca,mg/kg
+Mg,mg/kg
+Mn,mg/kg
+Zn,mg/kg
+Al,mg/kg
+B,mg/kg
+Cu,mg/kg
+Fe,mg/kg
+Na,mg/kg
+Ni,mg/kg
+Si,mg/kg

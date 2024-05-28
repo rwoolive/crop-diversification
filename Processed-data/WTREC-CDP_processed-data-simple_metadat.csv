@@ -1,0 +1,117 @@
+﻿Plot,"Unique code for each of the 80 plots, made up of three numbers: first number represents the rep (1-4) and the second two numbers represent the plot within rep (01-20)"
+Rep,"Blocking code: 1, 2, 3, 4"
+Depth,"Depth of soil sample: 0-10, 10-20, 20-30 cm"
+Year,Year of collection
+Season,"Spring, Summer, Autumn"
+Cropping.system,Sequence of cash crops across the three-year period (whole plot)
+Cover,"One of five cover crop treatments: No cover, Wheat, Clover (crimson clover), Wheat-Clover, SHM (Soil health mix: Cereal rye, whole oats, daikon radish, crimson clover, hairy vetch) (sub plot)"
+GMC,Proportion of moisture in fresh soil
+BD,Bulk density in g/cm3
+MBC,mg of microbial biomass carbon per kg of dry
+pH,"pH, average of two measurements per soil"
+AG,Activity of α-Glucosidase (AG) in units of nmol activity/g dry soil/h
+BG,Activity of β-Glucosidase (BG) in units of nmol activity/g dry soil/h
+CB,Activity of β-D-cellobiosidase (CB) in units of nmol activity/g dry soil/h
+LAP,Activity of leucine aminopeptidase (LAP) in units of nmol activity/g dry soil/h
+NAG,Activity of N-acetyl-β-Glucosaminidase (NAG) in units of nmol activity/g dry soil/h
+PHOS,Activity of Phosphatase (PHOS) in units of nmol activity/g dry soil/h
+XYL,Activity of β-Xylosidase (XYL) in units of nmol activity/g dry soil/h
+sep,Meters of septate hyphae per gram of dry soil
+asep,Meters of aseptate hyphae per gram of dry soil
+bac_richness,richness of 16S taxa
+bac_shannon.div,shannon diversity of 16S taxa
+bac_simpson.div,simpson diversity of 16S taxa
+bac_invsimpson.div,inverse simpson diversity of 16S taxa
+bac_evenness,evenness of 16S taxa
+fun_richness,richness of ITS taxa
+fun_shannon.div,shannon diversity of ITS taxa
+fun_simpson.div,simpson diversity of ITS taxa
+fun_invsimpson.div,inverse simpson diversity of ITS taxa
+fun_evenness,evenness of ITS taxa
+amf_relabund,abundance of arbuscular mycorrhizal fungal taxa (Glomeromycota)
+amf_richness,richness of arbuscular mycorrhizal fungal taxa (Glomeromycota)
+amf_shannon.div,shannon diversity of arbuscular mycorrhizal fungal taxa (Glomeromycota)
+amf_simpson.div,simpson diversity of arbuscular mycorrhizal fungal taxa (Glomeromycota)
+amf_invsimpson.div,inverse simpson diversity of arbuscular mycorrhizal fungal taxa (Glomeromycota)
+amf_evenness,evenness of arbuscular mycorrhizal fungal taxa (Glomeromycota)
+plantpath_relabund,abundance of plant pathogenic fungal taxa
+plantpath_richness,richness of plant pathogenic fungal taxa
+plantpath_shannon.div,shannon diversity of plant pathogenic fungal taxa
+plantpath_simpson.div,simpson diversity of plant pathogenic fungal taxa
+plantpath_invsimpson.div,inverse simpson diversity of plant pathogenic fungal taxa
+plantpath_evenness,evenness of plant pathogenic fungal taxa
+soilsap_relabund,abundance of soil saprotrophic fungal taxa
+soilsap_richness,richness of soil saprotrophic fungal taxa
+soilsap_shannon.div,shannon diversity of soil saprotrophic fungal taxa
+soilsap_simpson.div,simpson diversity of soil saprotrophic fungal taxa
+soilsap_invsimpson.div,inverse simpson diversity of soil saprotrophic fungal taxa
+soilsap_evenness,evenness of soil saprotrophic fungal taxa
+littersap_relabund,abundance of litter saprotrophic fungal taxa
+littersap_richness,richness of litter saprotrophic fungal taxa
+littersap_shannon.div,shannon diversity of litter saprotrophic fungal taxa
+littersap_simpson.div,simpson diversity of litter saprotrophic fungal taxa
+littersap_invsimpson.div,inverse simpson diversity of litter saprotrophic fungal taxa
+littersap_evenness,evenness of litter saprotrophic fungal taxa
+orgC,mg of organic carbon per kilogram of dry soil
+totN,mg of total nitrogen per kilogram of dry soil
+POC,g of particulate organic carbon per kilogram of dry soil
+MAOC,g of mineral-associated organic carbon per kilogram of dry soil
+sandC,g of sand-associated and heavy particulate organic carbon per kilogram of dry soil
+POM,g of particulate organic matter per kilogram of dry soil
+MAOM,g of mineral-associated organic matter per kilogram of dry soil
+sandM,g of sand-associated and heavy particulate organic matter per kilogram of dry soil
+POMc,percent carbon of particulate organic matter 
+MAOMc,percent carbon of mineral-associated organic matter
+sandc,percent carbon  of sand-associated and heavy particulate organic matter
+poxc,mg permanganate-oxidizable carbon per kg dry soil
+noN,mg of nitrate/nitrite-N per kilogram of dry soil
+nhN,mg of ammonium-N per kilogram of dry soil
+inorgN,mg of inorganic N (nitrate/nitrite + ammonium) per kilogram of dry soil
+P,mg of nutrient per kg dry soil
+K,mg of nutrient per kg dry soil
+Ca,mg of nutrient per kg dry soil
+Mg,mg of nutrient per kg dry soil
+Mn,mg of nutrient per kg dry soil
+Zn,mg of nutrient per kg dry soil
+Al,mg of nutrient per kg dry soil
+B,mg of nutrient per kg dry soil
+Cu,mg of nutrient per kg dry soil
+Fe,mg of nutrient per kg dry soil
+Na,mg of nutrient per kg dry soil
+Ni,mg of nutrient per kg dry soil
+Si,mg of nutrient per kg dry soil
+WEC,mg water-exractable carbon per kg dry soil
+WEN,mg water-exractable nitrogen per kg dry soil
+WAS,percent of aggregates that are ater-stable
+MWD4,"mean weight diameter calculated from 4 size classes (0-0.53mm, 0.053-0.25mm, 0.25-2mm, and 2-8mm)"
+MWD5,"mean weight diameter calculated from 5 size classes (0-0.53mm, 0.053-0.25mm, 0.25-2mm, 2-4.75mm, and 4.75-8mm)"
+CCpc,"percent cover of cover crops measured using the canopeo app, averaged between two measurements"
+CCc,percent carbon of dry cover crop biomass
+CCn,percent nitrogen of dry cover crop biomass
+CCcn,carbon to nitrogen ratio of dry cover crop biomass
+Wc,percent carbon of dry weed biomass
+Wn,percent nitrogen of dry weed biomass
+Wcn,carbon to nitrogen ratio of dry weed biomass
+inputC,grams of carbon per meter squared of aboveground cover crop biomass (covers + weeds)
+inputN,grams of nitrogen per meter squared of aboveground cover crop biomass (covers + weeds)
+Weeds,grams of weed biomass per meter squared
+Wheat,grams of wheat biomass per meter squared
+Clover,grams of clover biomass per meter squared
+Radish,grams of radish biomass per meter squared
+Vetch,grams of vetch biomass per meter squared
+Grass,grams of grass (rye+oats) biomass per meter squared
+Yield,main crop yield at the end of the growing season in bushels per acre (corn/soybean) or lbs per acre (cotton)
+Yield.crop,type of crop associated with yield measurement
+tissue.N.percent,foliar nutrient concentration of main crop 
+tissue.P.percent,foliar nutrient concentration of main crop 
+tissue.K.percent,foliar nutrient concentration of main crop 
+tissue.Ca.percent,foliar nutrient concentration of main crop 
+tissue.Mg.percent,foliar nutrient concentration of main crop 
+tissue.S.percent,foliar nutrient concentration of main crop 
+tissue.B.ppm,foliar nutrient concentration of main crop 
+tissue.Cu.ppm,foliar nutrient concentration of main crop 
+tissue.Fe.ppm,foliar nutrient concentration of main crop 
+tissue.Mn.ppm,foliar nutrient concentration of main crop 
+tissue.Zn.ppm,foliar nutrient concentration of main crop 
+tissue.Na.ppm,foliar nutrient concentration of main crop 
+Notes,notes on whether measurements seemed high or low
