@@ -1,9 +1,10 @@
 
 library(ggplot2)
 
+dat2 <- read.csv("Processed-data/multifunctionality.csv")
 
 ############
-# agronomic benefits of cover cropping
+# benefits of cover crop diversification
 ############
 
 
@@ -13,52 +14,98 @@ weeds <- read.csv("Model-output/lsmeans/*across years/weeds_cover.csv")
 inputC <- read.csv("Model-output/lsmeans/*across years/inputC_cover.csv")
 inputN <- read.csv("Model-output/lsmeans/*across years/inputN_cover.csv")
 inputCN <- read.csv("Model-output/lsmeans/*across years/inputCN_cover.csv")
-foliarP <-  read.csv("Model-output/lsmeans/*across years/tissue.P.percent_cover.csv")
-#foliarS <-  read.csv("Model-output/lsmeans/*across years/tissue.S.percent_cover.csv")
-foliarB <-  read.csv("Model-output/lsmeans/*across years/tissue.B.ppm_cover.csv")
-foliarCu <-  read.csv("Model-output/lsmeans/*across years/tissue.Cu.ppm_cover.csv")
-foliarZn <-  read.csv("Model-output/lsmeans/*across years/tissue.Zn.ppm_cover.csv")
-Yield <-  read.csv("Model-output/lsmeans/*across years/Yield_std_cover.csv")
+Yield_scaled <-  read.csv("Model-output/lsmeans/*across years/Yield_scaled_cover.csv")
+multifunctionality_index_agronomy2 <-  read.csv("Model-output/lsmeans/*across years/multifunctionality_index_agronomy2_cover.csv")
 
-# normalize means between 0 and 1
-agb$response_std <- (agb$response-min(agb$response))/(max(agb$response-min(agb$response)))
-weeds$response_std <- (weeds$response-max(weeds$response))/(min(weeds$response-max(weeds$response)))
-inputC$response_std <- (inputC$response-min(inputC$response))/(max(inputC$response-min(inputC$response)))
-inputN$response_std <- (inputN$response-min(inputN$response))/(max(inputN$response-min(inputN$response)))
-inputCN$response_std <- (inputCN$response-max(inputCN$response))/(min(inputCN$response-max(inputCN$response)))
-foliarP$response_std <- (foliarP$response-min(foliarP$response))/(max(foliarP$response-min(foliarP$response)))
-#foliarS$response_std <- (foliarS$response-min(foliarS$response))/(max(foliarS$response-min(foliarS$response)))
-foliarB$response_std <- (foliarB$response-min(foliarB$response))/(max(foliarB$response-min(foliarB$response)))
-foliarCu$response_std <- (foliarCu$response-min(foliarCu$response))/(max(foliarCu$response-min(foliarCu$response)))
-foliarZn$response_std <- (foliarZn$response-min(foliarZn$response))/(max(foliarZn$response-min(foliarZn$response)))
-Yield$response_std <- (Yield$response-min(Yield$response))/(max(Yield$response-min(Yield$response)))
+inorgN <- read.csv("Model-output/lsmeans/*across years/inorgN_cover.csv")
+GMC <- read.csv("Model-output/lsmeans/*across years/GMC_cover.csv")
+EEA_C <- read.csv("Model-output/lsmeans/*across years/EEA_C_cover.csv")
+EEA_N <- read.csv("Model-output/lsmeans/*across years/EEA_N_cover.csv")
+PHOS <- read.csv("Model-output/lsmeans/*across years/PHOS_cover.csv")
+WEC <- read.csv("Model-output/lsmeans/*across years/WEC_cover.csv")
+WEN <- read.csv("Model-output/lsmeans/*across years/WEN_cover.csv")
+MBC <- read.csv("Model-output/lsmeans/*across years/MBC_cover.csv")
+orgC <- read.csv("Model-output/lsmeans/*across years/orgC_cover.csv")
+totN <- read.csv("Model-output/lsmeans/*across years/totN_cover.csv")
+POC <- read.csv("Model-output/lsmeans/*across years/POC_cover.csv")
+MAOC <- read.csv("Model-output/lsmeans/*across years/MAOC_cover.csv")
+WAS <- read.csv("Model-output/lsmeans/*across years/WAS_cover.csv")
+multifunctionality_index_soil2 <- read.csv("Model-output/lsmeans/*across years/multifunctionality_index_soil2_cover.csv")
+
+tissue.N.percent_scaled <- read.csv("Model-output/lsmeans/*across years/tissue.N.percent_scaled_cover.csv")
+tissue.P.percent_scaled <- read.csv("Model-output/lsmeans/*across years/tissue.P.percent_scaled_cover.csv")
+tissue.K.percent_scaled <- read.csv("Model-output/lsmeans/*across years/tissue.K.percent_scaled_cover.csv")
+tissue.Ca.percent_scaled <- read.csv("Model-output/lsmeans/*across years/tissue.Ca.percent_scaled_cover.csv")
+tissue.Mg.percent_scaled <- read.csv("Model-output/lsmeans/*across years/tissue.Mg.percent_scaled_cover.csv")
+tissue.S.percent_scaled <- read.csv("Model-output/lsmeans/*across years/tissue.S.percent_scaled_cover.csv")
+tissue.B.ppm_scaled <- read.csv("Model-output/lsmeans/*across years/tissue.B.ppm_scaled_cover.csv")
+tissue.Cu.ppm_scaled <- read.csv("Model-output/lsmeans/*across years/tissue.Cu.ppm_scaled_cover.csv")
+tissue.Fe.ppm_scaled <- read.csv("Model-output/lsmeans/*across years/tissue.Fe.ppm_scaled_cover.csv")
+tissue.Mn.ppm_scaled <- read.csv("Model-output/lsmeans/*across years/tissue.Mn.ppm_scaled_cover.csv")
+tissue.Zn.ppm_scaled <- read.csv("Model-output/lsmeans/*across years/tissue.Zn.ppm_scaled_cover.csv")
+tissue.Na.ppm_scaled <- read.csv("Model-output/lsmeans/*across years/tissue.Na.ppm_scaled_cover.csv")
 
 
-# combine normalized means
-agron_table <- data.frame(agb = c(NA,agb$response_std), 
-                          weeds = weeds$response_std, 
-                          inputC = inputC$response_std, 
-                          inputN = inputN$response_std, 
-                          inputCN = inputCN$response_std, 
-                          #foliarP = foliarP$response_std, 
-                          #foliarS = foliarS$response_std, 
-                          #foliarB = foliarB$response_std, 
-                          #foliarCu = foliarCu$response_std, 
-                          #foliarZn = foliarZn$response_std, 
-                          Yield = Yield$response_std)
-agron_table$sum1 <- rowSums(agron_table, na.rm = TRUE)
-agron_table <- round(agron_table, 2)
+
+# back-transform scaled yield to get yield for corn/cotton/soy
+
+max_ <- max(dat2$Yield[which(dat2$Yield.crop=="Corn")], na.rm = T)* 62.77/1000 
+min_ <- min(dat2$Yield[which(dat2$Yield.crop=="Corn")], na.rm = T)* 62.77/1000 
+Yield_scaled$response_Corn <- Yield_scaled$response*(max_ - min_) + min_
+Yield_scaled$SE_Corn <- Yield_scaled$SE*(max_ - min_) + min_
+
+max_ <- max(dat2$Yield[which(dat2$Yield.crop=="Cotton")], na.rm = T)* 1.1209/1000
+min_ <- min(dat2$Yield[which(dat2$Yield.crop=="Cotton")], na.rm = T)* 1.1209/1000
+Yield_scaled$response_Cotton <- Yield_scaled$response*(max_ - min_) + min_
+Yield_scaled$SE_Cotton <- Yield_scaled$SE*(max_ - min_) + min_
+
+max_ <- max(dat2$Yield[which(dat2$Yield.crop=="Soybean")], na.rm = T)* 67.25/1000
+min_ <- min(dat2$Yield[which(dat2$Yield.crop=="Soybean")], na.rm = T)* 67.25/1000
+Yield_scaled$response_Soybean <- Yield_scaled$response*(max_ - min_) + min_
+Yield_scaled$SE_Soybean <- Yield_scaled$SE*(max_ - min_) + min_
 
 
 
 
 # extract means 
 agb$resp_se <- paste0(round(agb$response, 2), " ± ", round(agb$SE, 2), " ", gsub(" ", "", agb$.group))
-weeds$resp_se <- paste0(round(weeds$response, 2), " ± ", round(weeds$SE, 2), " ", gsub(" ", "", weeds$.group))
+weeds$resp_se <- paste0(round(weeds$response, 2), " ± ", round(weeds$SE, 2))#, " ", gsub(" ", "", weeds$.group))
 inputC$resp_se <- paste0(round(inputC$response, 2), " ± ", round(inputC$SE, 2), " ", gsub(" ", "", inputC$.group))
 inputN$resp_se <- paste0(round(inputN$response, 2), " ± ", round(inputN$SE, 2), " ", gsub(" ", "", inputN$.group))
 inputCN$resp_se <- paste0(round(inputCN$response, 2), " ± ", round(inputCN$SE, 2), " ", gsub(" ", "", inputCN$.group))
-Yield$resp_se <- paste0(round(Yield$response, 2), " ± ", round(Yield$SE, 2), " ", gsub(" ", "", Yield$.group))
+Yield_scaled$resp_se <- paste0(round(Yield_scaled$response, 2), " ± ", round(Yield_scaled$SE, 2), " ", gsub(" ", "", Yield_scaled$.group))
+Yield_scaled$Corn_se <- paste0(round(Yield_scaled$response_Corn, 2), " ± ", round(Yield_scaled$SE_Corn, 2))#, " ", gsub(" ", "", Yield_scaled$.group))
+Yield_scaled$Cotton_se <- paste0(round(Yield_scaled$response_Cotton, 2), " ± ", round(Yield_scaled$SE_Cotton, 2))#, " ", gsub(" ", "", Yield_scaled$.group))
+Yield_scaled$Soybean_se <- paste0(round(Yield_scaled$response_Soybean, 2), " ± ", round(Yield_scaled$SE_Soybean, 2))#, " ", gsub(" ", "", Yield_scaled$.group))
+multifunctionality_index_agronomy2$resp_se <- paste0(round(multifunctionality_index_agronomy2$response, 2), " ± ", round(multifunctionality_index_agronomy2$SE, 2), " ", gsub(" ", "", multifunctionality_index_agronomy2$.group))
+
+inorgN$resp_se <- paste0(round(inorgN$response, 2), " ± ", round(inorgN$SE, 2))#, " ", gsub(" ", "", inorgN$.group))
+GMC$resp_se <- paste0(round(GMC$response, 2), " ± ", round(GMC$SE, 2))#, " ", gsub(" ", "", GMC$.group))
+EEA_C$resp_se <- paste0(round(EEA_C$response, 2), " ± ", round(EEA_C$SE, 2))#, " ", gsub(" ", "", EEA_C$.group))
+EEA_N$resp_se <- paste0(round(EEA_N$response, 2), " ± ", round(EEA_N$SE, 2))#, " ", gsub(" ", "", EEA_N$.group))
+PHOS$resp_se <- paste0(round(PHOS$response, 2), " ± ", round(PHOS$SE, 2))#, " ", gsub(" ", "", PHOS$.group))
+WEC$resp_se <- paste0(round(WEC$response, 2), " ± ", round(WEC$SE, 2))#, " ", gsub(" ", "", WEC$.group))
+WEN$resp_se <- paste0(round(WEN$response, 2), " ± ", round(WEN$SE, 2))#, " ", gsub(" ", "", WEN$.group))
+MBC$resp_se <- paste0(round(MBC$response, 2), " ± ", round(MBC$SE, 2))#, " ", gsub(" ", "", MBC$.group))
+orgC$resp_se <- paste0(round(orgC$response, 2), " ± ", round(orgC$SE, 2))#, " ", gsub(" ", "", orgC$.group))
+totN$resp_se <- paste0(round(totN$response, 2), " ± ", round(totN$SE, 2))#, " ", gsub(" ", "", totN$.group))
+POC$resp_se <- paste0(round(POC$response, 2), " ± ", round(POC$SE, 2))#, " ", gsub(" ", "", POC$.group))
+MAOC$resp_se <- paste0(round(MAOC$response, 2), " ± ", round(MAOC$SE, 2))#, " ", gsub(" ", "", MAOC$.group))
+WAS$resp_se <- paste0(round(WAS$response, 2), " ± ", round(WAS$SE, 2))#, " ", gsub(" ", "", WAS$.group))
+multifunctionality_index_soil2$resp_se <- paste0(round(multifunctionality_index_soil2$response, 2), " ± ", round(multifunctionality_index_soil2$SE, 2))#, " ", gsub(" ", "", multifunctionality_index_soil2$.group))
+
+tissue.N.percent_scaled$resp_se <- paste0(round(tissue.N.percent_scaled$response, 2), " ± ", round(tissue.N.percent_scaled$SE, 2))#, " ", gsub(" ", "", tissue.N.percent_scaled$.group))
+tissue.P.percent_scaled$resp_se <- paste0(round(tissue.P.percent_scaled$response, 2), " ± ", round(tissue.P.percent_scaled$SE, 2))#, " ", gsub(" ", "", tissue.P.percent_scaled$.group))
+tissue.K.percent_scaled$resp_se <- paste0(round(tissue.K.percent_scaled$response, 2), " ± ", round(tissue.K.percent_scaled$SE, 2))#, " ", gsub(" ", "", tissue.K.percent_scaled$.group))
+tissue.Ca.percent_scaled$resp_se <- paste0(round(tissue.Ca.percent_scaled$response, 2), " ± ", round(tissue.Ca.percent_scaled$SE, 2))#, " ", gsub(" ", "", tissue.Ca.percent_scaled$.group))
+tissue.Mg.percent_scaled$resp_se <- paste0(round(tissue.Mg.percent_scaled$response, 2), " ± ", round(tissue.Mg.percent_scaled$SE, 2))#, " ", gsub(" ", "", tissue.Mg.percent_scaled$.group))
+tissue.S.percent_scaled$resp_se <- paste0(round(tissue.S.percent_scaled$response, 2), " ± ", round(tissue.S.percent_scaled$SE, 2))#, " ", gsub(" ", "", tissue.S.percent_scaled$.group))
+tissue.B.ppm_scaled$resp_se <- paste0(round(tissue.B.ppm_scaled$response, 2), " ± ", round(tissue.B.ppm_scaled$SE, 2))#, " ", gsub(" ", "", tissue.B.ppm_scaled$.group))
+tissue.Cu.ppm_scaled$resp_se <- paste0(round(tissue.Cu.ppm_scaled$response, 2), " ± ", round(tissue.Cu.ppm_scaled$SE, 2))#, " ", gsub(" ", "", tissue.Cu.ppm_scaled$.group))
+tissue.Fe.ppm_scaled$resp_se <- paste0(round(tissue.Fe.ppm_scaled$response, 2), " ± ", round(tissue.Fe.ppm_scaled$SE, 2))#, " ", gsub(" ", "", tissue.Fe.ppm_scaled$.group))
+tissue.Mn.ppm_scaled$resp_se <- paste0(round(tissue.Mn.ppm_scaled$response, 2), " ± ", round(tissue.Mn.ppm_scaled$SE, 2))#, " ", gsub(" ", "", tissue.Mn.ppm_scaled$.group))
+tissue.Zn.ppm_scaled$resp_se <- paste0(round(tissue.Zn.ppm_scaled$response, 2), " ± ", round(tissue.Zn.ppm_scaled$SE, 2))#, " ", gsub(" ", "", tissue.Zn.ppm_scaled$.group))
+tissue.Na.ppm_scaled$resp_se <- paste0(round(tissue.Na.ppm_scaled$response, 2), " ± ", round(tissue.Na.ppm_scaled$SE, 2))#, " ", gsub(" ", "", tissue.NA.ppm_scaled$.group))
 
 
 # combine normalized means
@@ -67,116 +114,159 @@ agron_table_means <- data.frame(agb = c(0,agb$resp_se),
                           inputC = inputC$resp_se, 
                           inputN = inputN$resp_se, 
                           inputCN = inputCN$resp_se, 
-                          Yield = Yield$resp_se)
-write.csv(t(agron_table_means), "Tables/means-agron-cover.csv")
-agron_table_means2 <- paste(agron_table_means, "(", agron_table, ")")
+                          Yield_scaled = Yield_scaled$resp_se,
+                          Yield_Corn = Yield_scaled$Corn_se,
+                          Yield_Cotton = Yield_scaled$Cotton_se,
+                          Yield_Soybean = Yield_scaled$Soybean_se,
+                          multifunctionality_index_agronomy2 = multifunctionality_index_agronomy2$resp_se, 
+                          inorgN = inorgN$resp_se, 
+                          GMC = GMC$resp_se, 
+                          EEA_C = EEA_C$resp_se, 
+                          EEA_N = EEA_N$resp_se, 
+                          PHOS = PHOS$resp_se, 
+                          WEC = WEC$resp_se, 
+                          WEN = WEN$resp_se, 
+                          MBC = MBC$resp_se, 
+                          orgC = orgC$resp_se, 
+                          totN = totN$resp_se, 
+                          POC = POC$resp_se, 
+                          MAOC = MAOC$resp_se, 
+                          WAS = WAS$resp_se, 
+                          multifunctionality_index_soil2 = multifunctionality_index_soil2$resp_se, 
+                          tissue.N.percent_scaled = tissue.N.percent_scaled$resp_se, 
+                          tissue.P.percent_scaled = tissue.P.percent_scaled$resp_se, 
+                          tissue.K.percent_scaled = tissue.K.percent_scaled$resp_se, 
+                          tissue.Ca.percent_scaled = tissue.Ca.percent_scaled$resp_se, 
+                          tissue.Mg.percent_scaled = tissue.Mg.percent_scaled$resp_se, 
+                          tissue.S.percent_scaled = tissue.S.percent_scaled$resp_se, 
+                          tissue.B.ppm_scaled = tissue.B.ppm_scaled$resp_se, 
+                          tissue.Cu.ppm_scaled = tissue.Cu.ppm_scaled$resp_se, 
+                          tissue.Fe.ppm_scaled = tissue.Fe.ppm_scaled$resp_se, 
+                          tissue.Mn.ppm_scaled = tissue.Mn.ppm_scaled$resp_se, 
+                          tissue.Zn.ppm_scaled = tissue.Zn.ppm_scaled$resp_se, 
+                          tissue.Na.ppm_scaled = tissue.Na.ppm_scaled$resp_se)
+write.csv(t(agron_table_means), "Tables/means-cover.csv")
 
-Magron_table_means <- as.matrix(agron_table_means)
-Magron_table <- as.matrix(as.data.frame(agron_table)[,-7])
-Magron_table_merged <- matrix( paste0(Magron_table_means, " (", Magron_table, ")"), 
-        nrow=nrow(Magron_table_means), dimnames = dimnames(Magron_table_means))
 
-Magron_table_merged2 <- cbind(Magron_table_merged, as.data.frame(agron_table)[,7])
+
 
 
 
 ############
-# soil benefits of cover cropping
+# benefits of cropping system diversification
 ############
 
 
 # import raw anova output
-inorgN <- read.csv("Model-output/lsmeans/*across years/inorgN_cover.csv")
-GMC <- read.csv("Model-output/lsmeans/*across years/GMC_cover.csv")
-BG <- read.csv("Model-output/lsmeans/*across years/BG_cover.csv")
-NAG <- read.csv("Model-output/lsmeans/*across years/NAG_cover.csv")
-PHOS <- read.csv("Model-output/lsmeans/*across years/PHOS_cover.csv")
-WEC <- read.csv("Model-output/lsmeans/*across years/WEC_cover.csv")
-#MBC <- read.csv("Model-output/lsmeans/*across years/MBC_cover.csv")
-orgC <- read.csv("Model-output/lsmeans/*across years/orgC_cover.csv")
-totN <- read.csv("Model-output/lsmeans/*across years/totN_cover.csv")
-POC <- read.csv("Model-output/lsmeans/*across years/POC_cover.csv")
-MAOC <- read.csv("Model-output/lsmeans/*across years/MAOC_cover.csv")
+agb <- read.csv("Model-output/lsmeans/*across years/agb_cropsys.csv")
+weeds <- read.csv("Model-output/lsmeans/*across years/weeds_cropsys.csv")
+inputC <- read.csv("Model-output/lsmeans/*across years/inputC_cropsys.csv")
+inputN <- read.csv("Model-output/lsmeans/*across years/inputN_cropsys.csv")
+inputCN <- read.csv("Model-output/lsmeans/*across years/inputCN_cropsys.csv")
+Yield_scaled <-  read.csv("Model-output/lsmeans/*across years/Yield_scaled_cropsys.csv")
+multifunctionality_index_agronomy2 <-  read.csv("Model-output/lsmeans/*across years/multifunctionality_index_agronomy2_cropsys.csv")
+
+inorgN <- read.csv("Model-output/lsmeans/*across years/inorgN_cropsys.csv")
+GMC <- read.csv("Model-output/lsmeans/*across years/GMC_cropsys.csv")
+EEA_C <- read.csv("Model-output/lsmeans/*across years/EEA_C_cropsys.csv")
+EEA_N <- read.csv("Model-output/lsmeans/*across years/EEA_N_cropsys.csv")
+PHOS <- read.csv("Model-output/lsmeans/*across years/PHOS_cropsys.csv")
+WEC <- read.csv("Model-output/lsmeans/*across years/WEC_cropsys.csv")
+WEN <- read.csv("Model-output/lsmeans/*across years/WEN_cropsys.csv")
+MBC <- read.csv("Model-output/lsmeans/*across years/MBC_cropsys.csv")
+orgC <- read.csv("Model-output/lsmeans/*across years/orgC_cropsys.csv")
+totN <- read.csv("Model-output/lsmeans/*across years/totN_cropsys.csv")
+POC <- read.csv("Model-output/lsmeans/*across years/POC_cropsys.csv")
+MAOC <- read.csv("Model-output/lsmeans/*across years/MAOC_cropsys.csv")
+WAS <- read.csv("Model-output/lsmeans/*across years/WAS_cropsys.csv")
+multifunctionality_index_soil2 <- read.csv("Model-output/lsmeans/*across years/multifunctionality_index_soil2_cropsys.csv")
+
+# back-transform scaled yield to get yield for corn/cotton/soy
+
+max_ <- max(dat2$Yield[which(dat2$Yield.crop=="Corn")], na.rm = T)* 62.77/1000 
+min_ <- min(dat2$Yield[which(dat2$Yield.crop=="Corn")], na.rm = T)* 62.77/1000 
+Yield_scaled$response_Corn <- Yield_scaled$response*(max_ - min_) + min_
+Yield_scaled$SE_Corn <- Yield_scaled$SE*(max_ - min_) + min_
+
+max_ <- max(dat2$Yield[which(dat2$Yield.crop=="Cotton")], na.rm = T)* 1.1209/1000
+min_ <- min(dat2$Yield[which(dat2$Yield.crop=="Cotton")], na.rm = T)* 1.1209/1000
+Yield_scaled$response_Cotton <- Yield_scaled$response*(max_ - min_) + min_
+Yield_scaled$SE_Cotton <- Yield_scaled$SE*(max_ - min_) + min_
+
+max_ <- max(dat2$Yield[which(dat2$Yield.crop=="Soybean")], na.rm = T)* 67.25/1000
+min_ <- min(dat2$Yield[which(dat2$Yield.crop=="Soybean")], na.rm = T)* 67.25/1000
+Yield_scaled$response_Soybean <- Yield_scaled$response*(max_ - min_) + min_
+Yield_scaled$SE_Soybean <- Yield_scaled$SE*(max_ - min_) + min_
 
 
-# normalize means between 0 and 1
-inorgN$response_std <- (inorgN$response-min(inorgN$response))/(max(inorgN$response-min(inorgN$response)))
-GMC$response_std <- (GMC$response-min(GMC$response))/(max(GMC$response-min(GMC$response)))
-BG$response_std <- (BG$response-min(BG$response))/(max(BG$response-min(BG$response)))
-NAG$response_std <- (NAG$response-min(NAG$response))/(max(NAG$response-min(NAG$response)))
-PHOS$response_std <- (PHOS$response-min(PHOS$response))/(max(PHOS$response-min(PHOS$response)))
-WEC$response_std <- (WEC$response-min(WEC$response))/(max(WEC$response-min(WEC$response)))
-#MBC$response_std <- (MBC$response-min(MBC$response))/(max(MBC$response-min(MBC$response)))
-orgC$response_std <- (orgC$response-min(orgC$response))/(max(orgC$response-min(orgC$response)))
-totN$response_std <- (totN$response-min(totN$response))/(max(totN$response-min(totN$response)))
-POC$response_std <- (POC$response-min(POC$response))/(max(POC$response-min(POC$response)))
-MAOC$response_std <- (MAOC$response-min(MAOC$response))/(max(MAOC$response-min(MAOC$response)))
 
-
-# combine normalized means
-soil_table <- data.frame(inorgN = c(inorgN$response_std),
-                         GMC = c(GMC$response_std),
-                         BG = c(BG$response_std),
-                         NAG = c(NAG$response_std),
-                         PHOS = c(PHOS$response_std),
-                         WEC = c(WEC$response_std),
-                         #MBC = c(MBC$response_std),
-                         orgC = c(orgC$response_std),
-                         totN = c(totN$response_std),
-                         POC = c(POC$response_std),
-                         MAOC = c(MAOC$response_std))
-soil_table$sum2 <- rowSums(soil_table, na.rm = TRUE)
-soil_table <- round(soil_table, 2)
 
 # extract means 
-inorgN$resp_se <- paste0(round(inorgN$response, 2), " ± ", round(inorgN$SE, 2), " ", gsub(" ", "", inorgN$.group))
-GMC$resp_se <- paste0(round(GMC$response, 2), " ± ", round(GMC$SE, 2), " ", gsub(" ", "", GMC$.group))
-BG$resp_se <- paste0(round(BG$response, 2), " ± ", round(BG$SE, 2), " ", gsub(" ", "", BG$.group))
-NAG$resp_se <- paste0(round(NAG$response, 2), " ± ", round(NAG$SE, 2), " ", gsub(" ", "", NAG$.group))
-PHOS$resp_se <- paste0(round(PHOS$response, 2), " ± ", round(PHOS$SE, 2), " ", gsub(" ", "", PHOS$.group))
-WEC$resp_se <- paste0(round(WEC$response, 2), " ± ", round(WEC$SE, 2), " ", gsub(" ", "", WEC$.group))
-orgC$resp_se <- paste0(round(orgC$response, 2), " ± ", round(orgC$SE, 2), " ", gsub(" ", "", orgC$.group))
-totN$resp_se <- paste0(round(totN$response, 2), " ± ", round(totN$SE, 2), " ", gsub(" ", "", totN$.group))
-POC$resp_se <- paste0(round(POC$response, 2), " ± ", round(POC$SE, 2), " ", gsub(" ", "", POC$.group))
-MAOC$resp_se <- paste0(round(MAOC$response, 2), " ± ", round(MAOC$SE, 2), " ", gsub(" ", "", MAOC$.group))
+agb$resp_se <- paste0(round(agb$response, 2), " ± ", round(agb$SE, 2))#, " ", gsub(" ", "", agb$.group))
+weeds$resp_se <- paste0(round(weeds$response, 2), " ± ", round(weeds$SE, 2))#, " ", gsub(" ", "", weeds$.group))
+inputC$resp_se <- paste0(round(inputC$response, 2), " ± ", round(inputC$SE, 2))#, " ", gsub(" ", "", inputC$.group))
+inputN$resp_se <- paste0(round(inputN$response, 2), " ± ", round(inputN$SE, 2))#, " ", gsub(" ", "", inputN$.group))
+inputCN$resp_se <- paste0(round(inputCN$response, 2), " ± ", round(inputCN$SE, 2))#, " ", gsub(" ", "", inputCN$.group))
+Yield_scaled$resp_se <- paste0(round(Yield_scaled$response, 2), " ± ", round(Yield_scaled$SE, 2))#, " ", gsub(" ", "", Yield_scaled$.group))
+Yield_scaled$Corn_se <- paste0(round(Yield_scaled$response_Corn, 2), " ± ", round(Yield_scaled$SE_Corn, 2))#, " ", gsub(" ", "", Yield_scaled$.group))
+Yield_scaled$Cotton_se <- paste0(round(Yield_scaled$response_Cotton, 2), " ± ", round(Yield_scaled$SE_Cotton, 2))#, " ", gsub(" ", "", Yield_scaled$.group))
+Yield_scaled$Soybean_se <- paste0(round(Yield_scaled$response_Soybean, 2), " ± ", round(Yield_scaled$SE_Soybean, 2))#, " ", gsub(" ", "", Yield_scaled$.group))
+multifunctionality_index_agronomy2$resp_se <- paste0(round(multifunctionality_index_agronomy2$response, 2), " ± ", round(multifunctionality_index_agronomy2$SE, 2))#, " ", gsub(" ", "", multifunctionality_index_agronomy2$.group))
 
+inorgN$resp_se <- paste0(round(inorgN$response, 2), " ± ", round(inorgN$SE, 2))#, " ", gsub(" ", "", inorgN$.group))
+GMC$resp_se <- paste0(round(GMC$response, 2), " ± ", round(GMC$SE, 2))#, " ", gsub(" ", "", GMC$.group))
+EEA_C$resp_se <- paste0(round(EEA_C$response, 2), " ± ", round(EEA_C$SE, 2))#, " ", gsub(" ", "", EEA_C$.group))
+EEA_N$resp_se <- paste0(round(EEA_N$response, 2), " ± ", round(EEA_N$SE, 2))#, " ", gsub(" ", "", EEA_N$.group))
+PHOS$resp_se <- paste0(round(PHOS$response, 2), " ± ", round(PHOS$SE, 2))#, " ", gsub(" ", "", PHOS$.group))
+WEC$resp_se <- paste0(round(WEC$response, 2), " ± ", round(WEC$SE, 2))#, " ", gsub(" ", "", WEC$.group))
+WEN$resp_se <- paste0(round(WEN$response, 2), " ± ", round(WEN$SE, 2))#, " ", gsub(" ", "", WEN$.group))
+MBC$resp_se <- paste0(round(MBC$response, 2), " ± ", round(MBC$SE, 2))#, " ", gsub(" ", "", MBC$.group))
+orgC$resp_se <- paste0(round(orgC$response, 2), " ± ", round(orgC$SE, 2))#, " ", gsub(" ", "", orgC$.group))
+totN$resp_se <- paste0(round(totN$response, 2), " ± ", round(totN$SE, 2))#, " ", gsub(" ", "", totN$.group))
+POC$resp_se <- paste0(round(POC$response, 2), " ± ", round(POC$SE, 2))#, " ", gsub(" ", "", POC$.group))
+MAOC$resp_se <- paste0(round(MAOC$response, 2), " ± ", round(MAOC$SE, 2))#, " ", gsub(" ", "", MAOC$.group))
+WAS$resp_se <- paste0(round(WAS$response, 2), " ± ", round(WAS$SE, 2))#, " ", gsub(" ", "", WAS$.group))
+multifunctionality_index_soil2$resp_se <- paste0(round(multifunctionality_index_soil2$response, 2), " ± ", round(multifunctionality_index_soil2$SE, 2))#, " ", gsub(" ", "", multifunctionality_index_soil2$.group))
 
 
 # combine normalized means
-soil_table_means <- data.frame(inorgN = inorgN$resp_se, 
+agron_table_means <- data.frame(agb = c(agb$resp_se), 
+                                weeds = weeds$resp_se, 
+                                inputC = inputC$resp_se, 
+                                inputN = inputN$resp_se, 
+                                inputCN = inputCN$resp_se, 
+                                Yield_scaled = Yield_scaled$resp_se,
+                                Yield_Corn = Yield_scaled$Corn_se,
+                                Yield_Cotton = Yield_scaled$Cotton_se,
+                                Yield_Soybean = Yield_scaled$Soybean_se,
+                                multifunctionality_index_agronomy2 = multifunctionality_index_agronomy2$resp_se, 
+                                inorgN = inorgN$resp_se, 
                                 GMC = GMC$resp_se, 
-                                BG = BG$resp_se, 
-                                NAG = NAG$resp_se, 
+                                EEA_C = EEA_C$resp_se, 
+                                EEA_N = EEA_N$resp_se, 
                                 PHOS = PHOS$resp_se, 
                                 WEC = WEC$resp_se, 
+                                WEN = WEN$resp_se, 
+                                MBC = MBC$resp_se, 
                                 orgC = orgC$resp_se, 
                                 totN = totN$resp_se, 
                                 POC = POC$resp_se, 
-                                MAOC = MAOC$resp_se
-)
-write.csv(t(soil_table_means), "Tables/means-soil-cover.csv")
-
-soil_table_means2 <- paste(soil_table_means, "(", soil_table, ")")
-
-Msoil_table_means <- as.matrix(soil_table_means)
-Msoil_table <- as.matrix(as.data.frame(soil_table)[,-11])
-Msoil_table_merged <- matrix( paste0(Msoil_table_means, " (", Msoil_table, ")"), 
-                               nrow=nrow(Msoil_table_means), dimnames = dimnames(Msoil_table_means))
-
-Msoil_table_merged2 <- cbind(Msoil_table_merged, as.data.frame(soil_table)[,11])
+                                MAOC = MAOC$resp_se, 
+                                WAS = WAS$resp_se, 
+                                multifunctionality_index_soil2 = multifunctionality_index_soil2$resp_se)
+write.csv(t(agron_table_means), "Tables/means-cropsys.csv")
 
 
 
-# merge tables
-cover_table <- cbind(Magron_table_merged2, Msoil_table_merged2)
-cover_table <- as.data.frame(cover_table)
-cover_table$overallsum <- as.numeric(cover_table$V7) + as.numeric(cover_table$V18)
-cover_table <- t(cover_table)
 
 
 
-# export
-write.csv(cover_table, "Tables/benefits-cover.csv")
+
+
+
+
+
+
 
 
 #### make a heatmaps of standardized means
