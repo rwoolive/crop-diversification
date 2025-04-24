@@ -114,6 +114,6 @@ p <- ggplot(cdat4, aes(fill=type, y=biomass, x=Cover2)) +
   labs(x="", y=expression(paste("Aboveground biomass (Mg ha"^-1,")")), fill="Biomass type") +
   scale_fill_manual(values=c("darkorange1","darkolivegreen",  "darkred", "darkslategray3", "darkviolet",  "brown1")) +
   guides(fill = guide_legend(nrow = 1))
-ggpubr::ggexport(p, height=1700, width=4000, filename = "Figures/*across years/cover crop and weed biomass_stacked_mgha.png", res=400)
+ggpubr::ggexport(p, height=1700, width=4000, filename = "Figures/_across years/cover crop and weed biomass_stacked_mgha.png", res=400)
 
 

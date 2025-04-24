@@ -31,7 +31,7 @@ dat2$Season <- factor(dat2$Season, levels(dat2$Season)[c(2,3,1)])
 
 
 # plot multifunctionality_index_agronomy2 by cover and time
-testlet <- read.csv("Model-output/lsmeans/*across years/multifunctionality_index_agronomy2_cover_time.csv")
+testlet <- read.csv("Model-output/lsmeans/_across years/multifunctionality_index_agronomy2_cover_time.csv")
 testlet$Cover <- as.factor(testlet$Cover); testlet$Cover <- factor(testlet$Cover , levels(testlet$Cover)[c(2,4,1,5,3)])
 #testlet$Cropping.system <- as.factor(testlet$Cropping.system); testlet$Cropping.system <- factor(testlet$Cropping.system , levels(testlet$Cropping.system)[c(1,4,3,2)])
 multifunctionality_index_agronomy2_ylim <- c(0.3,0.7)
@@ -65,12 +65,12 @@ p
 
 
 # export figure
-ggpubr::ggexport(p, height=800, width=1500, filename = "Figures/*across years/*multifunctionality_index_agronomy2_cover_time.png", res = 400)
+ggpubr::ggexport(p, height=800, width=1500, filename = "Figures/_across years/_multifunctionality_index_agronomy2_cover_time.png", res = 400)
 
 
 
 # plot
-testlet <- read.csv("Model-output/lsmeans/*across years/multifunctionality_index_agronomy2_cover.csv")
+testlet <- read.csv("Model-output/lsmeans/_across years/multifunctionality_index_agronomy2_cover.csv")
 testlet$Cover <- as.factor(testlet$Cover); testlet$Cover <- factor(testlet$Cover , levels(testlet$Cover)[c(2,4,1,5,3)]) # c(3,1,4,2)
 multifunctionality_index_agronomy2_ylim <- c(0,0.7)
 
@@ -92,14 +92,14 @@ p <- ggplot(data=testlet, aes(x=Cover, y=response, fill=Cover)) +
 p
 
 # export figure
-ggpubr::ggexport(p, height=1300, width=1400, filename = "Figures/*across years/*multifunctionality_index_agronomy2_cover.png", res = 400)
+ggpubr::ggexport(p, height=1300, width=1400, filename = "Figures/_across years/_multifunctionality_index_agronomy2_cover.png", res = 400)
 
 
 
 ############### yield_scaled
 
 # plot
-testlet <- read.csv("Model-output/lsmeans/*across years/yield_scaled_cover.csv")
+testlet <- read.csv("Model-output/lsmeans/_across years/yield_scaled_cover.csv")
 testlet$Cover <- as.factor(testlet$Cover); testlet$Cover <- factor(testlet$Cover , levels(testlet$Cover)[c(2,4,1,5,3)]) # c(3,1,4,2)
 yield_scaled_cover_ylim <- c(0,1)
 
@@ -121,13 +121,13 @@ p <- ggplot(data=testlet, aes(x=Cover, y=response, fill=Cover)) +
 p
 
 # export figure
-ggpubr::ggexport(p, height=1300, width=1400, filename = "Figures/*across years/*yield_scaled_cover.png", res = 400)
+ggpubr::ggexport(p, height=1300, width=1400, filename = "Figures/_across years/_yield_scaled_cover.png", res = 400)
 
 
 
 
 # plot
-testlet <- read.csv("Model-output/lsmeans/*across years/yield_scaled_cropsys_time.csv")
+testlet <- read.csv("Model-output/lsmeans/_across years/yield_scaled_cropsys_time.csv")
 #testlet$Cover <- as.factor(testlet$Cover); testlet$Cover <- factor(testlet$Cover , levels(testlet$Cover)[c(2,4,1,5,3)])
 testlet$Cropping.system <- as.factor(testlet$Cropping.system); testlet$Cropping.system <- factor(testlet$Cropping.system , levels(testlet$Cropping.system)[c(1,4,3,2)])
 
@@ -160,7 +160,7 @@ p
 
 
 # export figure
-ggpubr::ggexport(p, height=800, width=2000, filename = "Figures/*across years/*yield_scaled_cropsys_time.png", res = 400)
+ggpubr::ggexport(p, height=800, width=2000, filename = "Figures/_across years/_yield_scaled_cropsys_time.png", res = 400)
 
 
 
@@ -169,9 +169,10 @@ ggpubr::ggexport(p, height=800, width=2000, filename = "Figures/*across years/*y
 
 
 # plot
-testlet <- read.csv("Model-output/lsmeans/*across years/agb_cover_time.csv")
+testlet <- read.csv("Model-output/lsmeans/_across years/agb_cover_time.csv")
 testlet$Cover <- as.factor(testlet$Cover); testlet$Cover <- factor(testlet$Cover , levels(testlet$Cover)[c(3,1,4,2)])
 #testlet$Cropping.system <- as.factor(testlet$Cropping.system); testlet$Cropping.system <- factor(testlet$Cropping.system , levels(testlet$Cropping.system)[c(1,4,3,2)])
+mean(testlet$response)
 
 
 p <- ggplot(data=testlet, aes(x=YearN, y=response, color=Cover)) +
@@ -202,13 +203,13 @@ p
 
 
 # export figure
-ggpubr::ggexport(p, height=800, width=1500, filename = "Figures/*across years/*agb_cover_time.png", res = 400)
+ggpubr::ggexport(p, height=800, width=1500, filename = "Figures/_across years/_agb_cover_time.png", res = 400)
 
 
 
 
 # plot
-testlet <- read.csv("Model-output/lsmeans/*across years/agb_cover.csv")
+testlet <- read.csv("Model-output/lsmeans/_across years/agb_cover.csv")
 testlet$Cover <- as.factor(testlet$Cover); testlet$Cover <- factor(testlet$Cover , levels(testlet$Cover)[c(3,1,4,2)]) # c(2,4,1,5,3)
 
 p <- ggplot(data=testlet, aes(x=Cover, y=response, fill=Cover)) +
@@ -229,11 +230,11 @@ p <- ggplot(data=testlet, aes(x=Cover, y=response, fill=Cover)) +
 p
 
 # export figure
-ggpubr::ggexport(p, height=1300, width=1400, filename = "Figures/*across years/*agb_cover.png", res = 400)
+ggpubr::ggexport(p, height=1300, width=1400, filename = "Figures/_across years/_agb_cover.png", res = 400)
 
 
 # plot
-testlet <- read.csv("Model-output/lsmeans/*across years/agb_time.csv")
+testlet <- read.csv("Model-output/lsmeans/_across years/agb_time.csv")
 testlet$Year <- as.factor(testlet$Year)
 
 p <- ggplot(data=testlet, aes(x=Year, y=response, fill=Year)) +
@@ -253,7 +254,7 @@ p <- ggplot(data=testlet, aes(x=Year, y=response, fill=Year)) +
 p
 
 # export figure
-ggpubr::ggexport(p, height=1300, width=1400, filename = "Figures/*across years/*agb_time.png", res = 400)
+ggpubr::ggexport(p, height=1300, width=1400, filename = "Figures/_across years/_agb_time.png", res = 400)
 
 
 
@@ -264,7 +265,7 @@ ggpubr::ggexport(p, height=1300, width=1400, filename = "Figures/*across years/*
 
 
 # plot
-testlet <- read.csv("Model-output/lsmeans/*across years/inputC_cover_time.csv")
+testlet <- read.csv("Model-output/lsmeans/_across years/inputC_cover_time.csv")
 testlet$Cover <- as.factor(testlet$Cover); testlet$Cover <- factor(testlet$Cover , levels(testlet$Cover)[c(2,4,1,5,3)])
 #testlet$Cropping.system <- as.factor(testlet$Cropping.system); testlet$Cropping.system <- factor(testlet$Cropping.system , levels(testlet$Cropping.system)[c(1,4,3,2)])
 
@@ -297,13 +298,13 @@ p
 
 
 # export figure
-ggpubr::ggexport(p, height=800, width=1500, filename = "Figures/*across years/*inputC_cover_time.png", res = 400)
+ggpubr::ggexport(p, height=800, width=1500, filename = "Figures/_across years/_inputC_cover_time.png", res = 400)
 
 
 
 
 # plot
-testlet <- read.csv("Model-output/lsmeans/*across years/inputC_cover.csv")
+testlet <- read.csv("Model-output/lsmeans/_across years/inputC_cover.csv")
 testlet$Cover <- as.factor(testlet$Cover); testlet$Cover <- factor(testlet$Cover , levels(testlet$Cover)[c(2,4,1,5,3)])
 
 p <- ggplot(data=testlet, aes(x=Cover, y=response, fill=Cover)) +
@@ -324,7 +325,7 @@ p <- ggplot(data=testlet, aes(x=Cover, y=response, fill=Cover)) +
 p
 
 # export figure
-ggpubr::ggexport(p, height=1300, width=1400, filename = "Figures/*across years/*inputC_cover.png", res = 400)
+ggpubr::ggexport(p, height=1300, width=1400, filename = "Figures/_across years/_inputC_cover.png", res = 400)
 
 
 
@@ -338,7 +339,7 @@ ggpubr::ggexport(p, height=1300, width=1400, filename = "Figures/*across years/*
 
 
 # plot
-testlet <- read.csv("Model-output/lsmeans/*across years/inputN_cover_time.csv")
+testlet <- read.csv("Model-output/lsmeans/_across years/inputN_cover_time.csv")
 testlet$Cover <- as.factor(testlet$Cover); testlet$Cover <- factor(testlet$Cover , levels(testlet$Cover)[c(2,4,1,5,3)])
 #testlet$Cropping.system <- as.factor(testlet$Cropping.system); testlet$Cropping.system <- factor(testlet$Cropping.system , levels(testlet$Cropping.system)[c(1,4,3,2)])
 
@@ -371,13 +372,13 @@ p
 
 
 # export figure
-ggpubr::ggexport(p, height=800, width=1500, filename = "Figures/*across years/*inputN_cover_time.png", res = 400)
+ggpubr::ggexport(p, height=800, width=1500, filename = "Figures/_across years/_inputN_cover_time.png", res = 400)
 
 
 
 
 # plot
-testlet <- read.csv("Model-output/lsmeans/*across years/inputN_cover.csv")
+testlet <- read.csv("Model-output/lsmeans/_across years/inputN_cover.csv")
 testlet$Cover <- as.factor(testlet$Cover); testlet$Cover <- factor(testlet$Cover , levels(testlet$Cover)[c(2,4,1,5,3)])
 testlet <- testlet[order(testlet$Cover),]
 
@@ -399,7 +400,7 @@ p <- ggplot(data=testlet, aes(x=Cover, y=response, fill=Cover)) +
 p
 
 # export figure
-ggpubr::ggexport(p, height=1300, width=1400, filename = "Figures/*across years/*inputN_cover.png", res = 400)
+ggpubr::ggexport(p, height=1300, width=1400, filename = "Figures/_across years/_inputN_cover.png", res = 400)
 
 
 
@@ -411,7 +412,7 @@ ggpubr::ggexport(p, height=1300, width=1400, filename = "Figures/*across years/*
 
 
 # plot
-testlet <- read.csv("Model-output/lsmeans/*across years/inputCN_cover.csv")
+testlet <- read.csv("Model-output/lsmeans/_across years/inputCN_cover.csv")
 testlet$Cover <- as.factor(testlet$Cover); testlet$Cover <- factor(testlet$Cover , levels(testlet$Cover)[c(2,4,1,5,3)])
 
 p <- ggplot(data=testlet, aes(x=Cover, y=response, fill=Cover)) +
@@ -432,7 +433,7 @@ p <- ggplot(data=testlet, aes(x=Cover, y=response, fill=Cover)) +
 p
 
 # export figure
-ggpubr::ggexport(p, height=1300, width=1400, filename = "Figures/*across years/*inputCN_cover.png", res = 400)
+ggpubr::ggexport(p, height=1300, width=1400, filename = "Figures/_across years/_inputCN_cover.png", res = 400)
 
 
 
@@ -443,7 +444,7 @@ ggpubr::ggexport(p, height=1300, width=1400, filename = "Figures/*across years/*
 
 
 # plot
-testlet <- read.csv("Model-output/lsmeans/*across years/inputCN_cropsys.csv")
+testlet <- read.csv("Model-output/lsmeans/_across years/inputCN_cropsys.csv")
 testlet$Cropping.system <- as.factor(testlet$Cropping.system)
 testlet$Cropping.system <- factor(testlet$Cropping.system , levels(testlet$Cropping.system)[c(1,4,3,2)])
 
@@ -465,7 +466,7 @@ p <- ggplot(data=testlet, aes(x=Cropping.system, y=response, fill=Cropping.syste
 p
 
 # export figure
-ggpubr::ggexport(p, height=1300, width=2100, filename = "Figures/*across years/*inputCN_cropsys.png", res = 400)
+ggpubr::ggexport(p, height=1300, width=2100, filename = "Figures/_across years/_inputCN_cropsys.png", res = 400)
 
 
 
@@ -492,7 +493,7 @@ ggpubr::ggexport(p, height=1300, width=2100, filename = "Figures/*across years/*
 maxes <- c(13,2,6)
 
 # plot
-testlet <- read.csv("Model-output/lsmeans/*across years/corn_yield_2021_cover.csv")
+testlet <- read.csv("Model-output/lsmeans/_across years/corn_yield_2021_cover.csv")
 testlet$Cover <- as.factor(testlet$Cover); testlet$Cover <- factor(testlet$Cover , levels(testlet$Cover)[c(2,4,1,5,3)])
 
 p <- ggplot(data=testlet, aes(x=Cover, y=response, fill=Cover)) +
@@ -513,11 +514,11 @@ p <- ggplot(data=testlet, aes(x=Cover, y=response, fill=Cover)) +
 p
 
 # export figure
-ggpubr::ggexport(p, height=1300, width=1400, filename = "Figures/*across years/*yield_corn_2021.png", res = 400)
+ggpubr::ggexport(p, height=1300, width=1400, filename = "Figures/_across years/_yield_corn_2021.png", res = 400)
 
 
 # plot
-testlet <- read.csv("Model-output/lsmeans/*across years/soybean_yield_2021_cover.csv")
+testlet <- read.csv("Model-output/lsmeans/_across years/soybean_yield_2021_cover.csv")
 testlet$Cover <- as.factor(testlet$Cover); testlet$Cover <- factor(testlet$Cover , levels(testlet$Cover)[c(2,4,1,5,3)])
 
 p <- ggplot(data=testlet, aes(x=Cover, y=response, fill=Cover)) +
@@ -538,12 +539,12 @@ p <- ggplot(data=testlet, aes(x=Cover, y=response, fill=Cover)) +
 p
 
 # export figure
-ggpubr::ggexport(p, height=1300, width=1400, filename = "Figures/*across years/*yield_soybean_2021.png", res = 400)
+ggpubr::ggexport(p, height=1300, width=1400, filename = "Figures/_across years/_yield_soybean_2021.png", res = 400)
 
 
 
 # plot
-testlet <- read.csv("Model-output/lsmeans/*across years/corn_yield_2022_cover.csv")
+testlet <- read.csv("Model-output/lsmeans/_across years/corn_yield_2022_cover.csv")
 testlet$Cover <- as.factor(testlet$Cover); testlet$Cover <- factor(testlet$Cover , levels(testlet$Cover)[c(2,4,1,5,3)])
 
 p <- ggplot(data=testlet, aes(x=Cover, y=response, fill=Cover)) +
@@ -564,12 +565,12 @@ p <- ggplot(data=testlet, aes(x=Cover, y=response, fill=Cover)) +
 p
 
 # export figure
-ggpubr::ggexport(p, height=1300, width=1400, filename = "Figures/*across years/*yield_corn_2022.png", res = 400)
+ggpubr::ggexport(p, height=1300, width=1400, filename = "Figures/_across years/_yield_corn_2022.png", res = 400)
 
 
 
 # plot
-testlet <- read.csv("Model-output/lsmeans/*across years/cotton_yield_2022_cover.csv")
+testlet <- read.csv("Model-output/lsmeans/_across years/cotton_yield_2022_cover.csv")
 testlet$Cover <- as.factor(testlet$Cover); testlet$Cover <- factor(testlet$Cover , levels(testlet$Cover)[c(2,4,1,5,3)])
 
 p <- ggplot(data=testlet, aes(x=Cover, y=response, fill=Cover)) +
@@ -590,12 +591,12 @@ p <- ggplot(data=testlet, aes(x=Cover, y=response, fill=Cover)) +
 p
 
 # export figure
-ggpubr::ggexport(p, height=1300, width=1400, filename = "Figures/*across years/*yield_cotton_2022.png", res = 400)
+ggpubr::ggexport(p, height=1300, width=1400, filename = "Figures/_across years/_yield_cotton_2022.png", res = 400)
 
 
 
 # plot
-testlet <- read.csv("Model-output/lsmeans/*across years/soybean_yield_2022_cover.csv")
+testlet <- read.csv("Model-output/lsmeans/_across years/soybean_yield_2022_cover.csv")
 testlet$Cover <- as.factor(testlet$Cover); testlet$Cover <- factor(testlet$Cover , levels(testlet$Cover)[c(2,4,1,5,3)])
 
 p <- ggplot(data=testlet, aes(x=Cover, y=response, fill=Cover)) +
@@ -616,7 +617,7 @@ p <- ggplot(data=testlet, aes(x=Cover, y=response, fill=Cover)) +
 p
 
 # export figure
-ggpubr::ggexport(p, height=1300, width=1400, filename = "Figures/*across years/*yield_soybean_2022.png", res = 400)
+ggpubr::ggexport(p, height=1300, width=1400, filename = "Figures/_across years/_yield_soybean_2022.png", res = 400)
 
 
 
@@ -624,7 +625,7 @@ ggpubr::ggexport(p, height=1300, width=1400, filename = "Figures/*across years/*
 
 
 # plot
-testlet <- read.csv("Model-output/lsmeans/*across years/corn_yield_2023_cover.csv")
+testlet <- read.csv("Model-output/lsmeans/_across years/corn_yield_2023_cover.csv")
 testlet$Cover <- as.factor(testlet$Cover); testlet$Cover <- factor(testlet$Cover , levels(testlet$Cover)[c(2,4,1,5,3)])
 
 p <- ggplot(data=testlet, aes(x=Cover, y=response, fill=Cover)) +
@@ -645,13 +646,13 @@ p <- ggplot(data=testlet, aes(x=Cover, y=response, fill=Cover)) +
 p
 
 # export figure
-ggpubr::ggexport(p, height=1300, width=1400, filename = "Figures/*across years/*yield_corn_2023.png", res = 400)
+ggpubr::ggexport(p, height=1300, width=1400, filename = "Figures/_across years/_yield_corn_2023.png", res = 400)
 
 
 
 
 # plot
-testlet <- read.csv("Model-output/lsmeans/*across years/soybean_yield_2023_cover.csv")
+testlet <- read.csv("Model-output/lsmeans/_across years/soybean_yield_2023_cover.csv")
 testlet$Cover <- as.factor(testlet$Cover); testlet$Cover <- factor(testlet$Cover , levels(testlet$Cover)[c(2,4,1,5,3)])
 
 p <- ggplot(data=testlet, aes(x=Cover, y=response, fill=Cover)) +
@@ -672,7 +673,7 @@ p <- ggplot(data=testlet, aes(x=Cover, y=response, fill=Cover)) +
 p
 
 # export figure
-ggpubr::ggexport(p, height=1300, width=1400, filename = "Figures/*across years/*yield_soybean_2023.png", res = 400)
+ggpubr::ggexport(p, height=1300, width=1400, filename = "Figures/_across years/_yield_soybean_2023.png", res = 400)
 
 
 
@@ -683,7 +684,7 @@ ggpubr::ggexport(p, height=1300, width=1400, filename = "Figures/*across years/*
 
 
 # plot
-testlet <- read.csv("Model-output/lsmeans/*across years/soybean_yield_2022_cropsys.csv")
+testlet <- read.csv("Model-output/lsmeans/_across years/soybean_yield_2022_cropsys.csv")
 testlet$Cropping.system <- as.factor(testlet$Cropping.system); testlet$Cropping.system <- factor(testlet$Cropping.system , levels(testlet$Cropping.system)[c(2,1)])
 
 p <- ggplot(data=testlet, aes(x=Cropping.system, y=response, fill=Cropping.system)) +
@@ -703,7 +704,7 @@ p <- ggplot(data=testlet, aes(x=Cropping.system, y=response, fill=Cropping.syste
 p
 
 # export figure
-ggpubr::ggexport(p, height=1200, width=1800, filename = "Figures/*across years/*yield_soybean_2022_cropsys.png", res = 400)
+ggpubr::ggexport(p, height=1200, width=1800, filename = "Figures/_across years/_yield_soybean_2022_cropsys.png", res = 400)
 
 
 
@@ -711,7 +712,7 @@ ggpubr::ggexport(p, height=1200, width=1800, filename = "Figures/*across years/*
 
 
 # plot
-testlet <- read.csv("Model-output/lsmeans/*across years/corn_yield_2023_cropsys.csv")
+testlet <- read.csv("Model-output/lsmeans/_across years/corn_yield_2023_cropsys.csv")
 testlet$Cropping.system <- as.factor(testlet$Cropping.system); testlet$Cropping.system <- factor(testlet$Cropping.system , levels(testlet$Cropping.system)[c(1,2)])
 
 p <- ggplot(data=testlet, aes(x=Cropping.system, y=response, fill=Cropping.system)) +
@@ -731,13 +732,13 @@ p <- ggplot(data=testlet, aes(x=Cropping.system, y=response, fill=Cropping.syste
 p
 
 # export figure
-ggpubr::ggexport(p, height=1200, width=1800, filename = "Figures/*across years/*yield_corn_2023_cropsys.png", res = 400)
+ggpubr::ggexport(p, height=1200, width=1800, filename = "Figures/_across years/_yield_corn_2023_cropsys.png", res = 400)
 
 
 
 
 # plot
-testlet <- read.csv("Model-output/lsmeans/*across years/soybean_yield_2023_cropsys.csv")
+testlet <- read.csv("Model-output/lsmeans/_across years/soybean_yield_2023_cropsys.csv")
 testlet$Cropping.system <- as.factor(testlet$Cropping.system); testlet$Cropping.system <- factor(testlet$Cropping.system , levels(testlet$Cropping.system)[c(2,1)])
 
 p <- ggplot(data=testlet, aes(x=Cropping.system, y=response, fill=Cropping.system)) +
@@ -759,7 +760,7 @@ p <- ggplot(data=testlet, aes(x=Cropping.system, y=response, fill=Cropping.syste
 p
 
 # export figure
-ggpubr::ggexport(p, height=1400, width=2100, filename = "Figures/*across years/*yield_soybean_2023_cropsys.png", res = 400)
+ggpubr::ggexport(p, height=1400, width=2100, filename = "Figures/_across years/_yield_soybean_2023_cropsys.png", res = 400)
 
 
 
@@ -793,7 +794,7 @@ p <- ggplot(dat2, aes(x = multifunctionality_index_agronomy2, y = multifunctiona
        y = "Soil multifunctionality") +
   lims(x=c(0.2,0.8), y=c(0.2,0.68))
 p
-ggpubr::ggexport(p, height=1300, width=2200, filename = "Figures/*across years/*multifunctionality correlation.png", res = 400)
+ggpubr::ggexport(p, height=1300, width=2200, filename = "Figures/_across years/_multifunctionality correlation.png", res = 400)
 
 
 
@@ -864,15 +865,15 @@ p <- ggplot(dat2,
         strip.text.y=element_text(size=7)) +
   geom_errorbar(inherit.aes=FALSE,data=dat3, width=0,
                 aes(x=Cover, ymin=response-SE, ymax=response+SE)) +
-  geom_point(inherit.aes=FALSE,data=dat3, x=rep(1:5, 3*4), y=dat3$response,
-             fill=rep(covercols[1:5], 3*4), col = "black",size = 2,shape = 21) + 
-  geom_text(inherit.aes=FALSE, x=rep(c(1:5), 3*4), y=c(dat3$response + dat3$SE+1.5), size=2.5, fontface="italic", 
+  geom_point(inherit.aes=FALSE,data=dat3, x=rep(1:5, 3_4), y=dat3$response,
+             fill=rep(covercols[1:5], 3_4), col = "black",size = 2,shape = 21) + 
+  geom_text(inherit.aes=FALSE, x=rep(c(1:5), 3_4), y=c(dat3$response + dat3$SE+1.5), size=2.5, fontface="italic", 
             data=dat4, aes(label = round(response,0))) # yield in Mg ha-1
 p
 
 
 # export figure
-ggpubr::ggexport(p, height=2700, width=2200, filename = "Figures/*Yield.png", res = 400)
+ggpubr::ggexport(p, height=2700, width=2200, filename = "Figures/_Yield.png", res = 400)
 
 
 

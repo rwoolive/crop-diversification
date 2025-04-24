@@ -9,41 +9,41 @@ dat2 <- read.csv("Processed-data/multifunctionality.csv")
 
 
 # import raw anova output
-agb <- read.csv("Model-output/lsmeans/*across years/agb_cover.csv")
-weeds <- read.csv("Model-output/lsmeans/*across years/weeds_cover.csv")
-inputC <- read.csv("Model-output/lsmeans/*across years/inputC_cover.csv")
-inputN <- read.csv("Model-output/lsmeans/*across years/inputN_cover.csv")
-inputCN <- read.csv("Model-output/lsmeans/*across years/inputCN_cover.csv")
-Yield_scaled <-  read.csv("Model-output/lsmeans/*across years/Yield_scaled_cover.csv")
-multifunctionality_index_agronomy2 <-  read.csv("Model-output/lsmeans/*across years/multifunctionality_index_agronomy2_cover.csv")
+agb <- read.csv("Model-output/lsmeans/_across years/agb_cover.csv")
+weeds <- read.csv("Model-output/lsmeans/_across years/weeds_cover.csv")
+inputC <- read.csv("Model-output/lsmeans/_across years/inputC_cover.csv")
+inputN <- read.csv("Model-output/lsmeans/_across years/inputN_cover.csv")
+inputCN <- read.csv("Model-output/lsmeans/_across years/inputCN_cover.csv")
+Yield_scaled <-  read.csv("Model-output/lsmeans/_across years/Yield_scaled_cover.csv")
+multifunctionality_index_agronomy2 <-  read.csv("Model-output/lsmeans/_across years/multifunctionality_index_agronomy2_cover.csv")
 
-inorgN <- read.csv("Model-output/lsmeans/*across years/inorgN_cover.csv")
-GMC <- read.csv("Model-output/lsmeans/*across years/GMC_cover.csv")
-EEA_C <- read.csv("Model-output/lsmeans/*across years/EEA_C_cover.csv")
-EEA_N <- read.csv("Model-output/lsmeans/*across years/EEA_N_cover.csv")
-PHOS <- read.csv("Model-output/lsmeans/*across years/PHOS_cover.csv")
-WEC <- read.csv("Model-output/lsmeans/*across years/WEC_cover.csv")
-WEN <- read.csv("Model-output/lsmeans/*across years/WEN_cover.csv")
-MBC <- read.csv("Model-output/lsmeans/*across years/MBC_cover.csv")
-orgC <- read.csv("Model-output/lsmeans/*across years/orgC_cover.csv")
-totN <- read.csv("Model-output/lsmeans/*across years/totN_cover.csv")
-POC <- read.csv("Model-output/lsmeans/*across years/POC_cover.csv")
-MAOC <- read.csv("Model-output/lsmeans/*across years/MAOC_cover.csv")
-WAS <- read.csv("Model-output/lsmeans/*across years/WAS_cover.csv")
-multifunctionality_index_soil2 <- read.csv("Model-output/lsmeans/*across years/multifunctionality_index_soil2_cover.csv")
+inorgN <- read.csv("Model-output/lsmeans/_across years/inorgN_cover.csv")
+GMC <- read.csv("Model-output/lsmeans/_across years/GMC_cover.csv")
+EEA_C <- read.csv("Model-output/lsmeans/_across years/EEA_C_cover.csv")
+EEA_N <- read.csv("Model-output/lsmeans/_across years/EEA_N_cover.csv")
+PHOS <- read.csv("Model-output/lsmeans/_across years/PHOS_cover.csv")
+WEC <- read.csv("Model-output/lsmeans/_across years/WEC_cover.csv")
+WEN <- read.csv("Model-output/lsmeans/_across years/WEN_cover.csv")
+MBC <- read.csv("Model-output/lsmeans/_across years/MBC_cover.csv")
+orgC <- read.csv("Model-output/lsmeans/_across years/orgC_cover.csv")
+totN <- read.csv("Model-output/lsmeans/_across years/totN_cover.csv")
+POC <- read.csv("Model-output/lsmeans/_across years/POC_cover.csv")
+MAOC <- read.csv("Model-output/lsmeans/_across years/MAOC_cover.csv")
+WAS <- read.csv("Model-output/lsmeans/_across years/WAS_cover.csv")
+multifunctionality_index_soil2 <- read.csv("Model-output/lsmeans/_across years/multifunctionality_index_soil2_cover.csv")
 
-tissue.N.percent_scaled <- read.csv("Model-output/lsmeans/*across years/tissue.N.percent_scaled_cover.csv")
-tissue.P.percent_scaled <- read.csv("Model-output/lsmeans/*across years/tissue.P.percent_scaled_cover.csv")
-tissue.K.percent_scaled <- read.csv("Model-output/lsmeans/*across years/tissue.K.percent_scaled_cover.csv")
-tissue.Ca.percent_scaled <- read.csv("Model-output/lsmeans/*across years/tissue.Ca.percent_scaled_cover.csv")
-tissue.Mg.percent_scaled <- read.csv("Model-output/lsmeans/*across years/tissue.Mg.percent_scaled_cover.csv")
-tissue.S.percent_scaled <- read.csv("Model-output/lsmeans/*across years/tissue.S.percent_scaled_cover.csv")
-tissue.B.ppm_scaled <- read.csv("Model-output/lsmeans/*across years/tissue.B.ppm_scaled_cover.csv")
-tissue.Cu.ppm_scaled <- read.csv("Model-output/lsmeans/*across years/tissue.Cu.ppm_scaled_cover.csv")
-tissue.Fe.ppm_scaled <- read.csv("Model-output/lsmeans/*across years/tissue.Fe.ppm_scaled_cover.csv")
-tissue.Mn.ppm_scaled <- read.csv("Model-output/lsmeans/*across years/tissue.Mn.ppm_scaled_cover.csv")
-tissue.Zn.ppm_scaled <- read.csv("Model-output/lsmeans/*across years/tissue.Zn.ppm_scaled_cover.csv")
-tissue.Na.ppm_scaled <- read.csv("Model-output/lsmeans/*across years/tissue.Na.ppm_scaled_cover.csv")
+tissue.N.percent_scaled <- read.csv("Model-output/lsmeans/_across years/tissue.N.percent_scaled_cover.csv")
+tissue.P.percent_scaled <- read.csv("Model-output/lsmeans/_across years/tissue.P.percent_scaled_cover.csv")
+tissue.K.percent_scaled <- read.csv("Model-output/lsmeans/_across years/tissue.K.percent_scaled_cover.csv")
+tissue.Ca.percent_scaled <- read.csv("Model-output/lsmeans/_across years/tissue.Ca.percent_scaled_cover.csv")
+tissue.Mg.percent_scaled <- read.csv("Model-output/lsmeans/_across years/tissue.Mg.percent_scaled_cover.csv")
+tissue.S.percent_scaled <- read.csv("Model-output/lsmeans/_across years/tissue.S.percent_scaled_cover.csv")
+tissue.B.ppm_scaled <- read.csv("Model-output/lsmeans/_across years/tissue.B.ppm_scaled_cover.csv")
+tissue.Cu.ppm_scaled <- read.csv("Model-output/lsmeans/_across years/tissue.Cu.ppm_scaled_cover.csv")
+tissue.Fe.ppm_scaled <- read.csv("Model-output/lsmeans/_across years/tissue.Fe.ppm_scaled_cover.csv")
+tissue.Mn.ppm_scaled <- read.csv("Model-output/lsmeans/_across years/tissue.Mn.ppm_scaled_cover.csv")
+tissue.Zn.ppm_scaled <- read.csv("Model-output/lsmeans/_across years/tissue.Zn.ppm_scaled_cover.csv")
+tissue.Na.ppm_scaled <- read.csv("Model-output/lsmeans/_across years/tissue.Na.ppm_scaled_cover.csv")
 
 
 
@@ -158,28 +158,28 @@ write.csv(t(agron_table_means), "Tables/means-cover.csv")
 
 
 # import raw anova output
-agb <- read.csv("Model-output/lsmeans/*across years/agb_cropsys.csv")
-weeds <- read.csv("Model-output/lsmeans/*across years/weeds_cropsys.csv")
-inputC <- read.csv("Model-output/lsmeans/*across years/inputC_cropsys.csv")
-inputN <- read.csv("Model-output/lsmeans/*across years/inputN_cropsys.csv")
-inputCN <- read.csv("Model-output/lsmeans/*across years/inputCN_cropsys.csv")
-Yield_scaled <-  read.csv("Model-output/lsmeans/*across years/Yield_scaled_cropsys.csv")
-multifunctionality_index_agronomy2 <-  read.csv("Model-output/lsmeans/*across years/multifunctionality_index_agronomy2_cropsys.csv")
+agb <- read.csv("Model-output/lsmeans/_across years/agb_cropsys.csv")
+weeds <- read.csv("Model-output/lsmeans/_across years/weeds_cropsys.csv")
+inputC <- read.csv("Model-output/lsmeans/_across years/inputC_cropsys.csv")
+inputN <- read.csv("Model-output/lsmeans/_across years/inputN_cropsys.csv")
+inputCN <- read.csv("Model-output/lsmeans/_across years/inputCN_cropsys.csv")
+Yield_scaled <-  read.csv("Model-output/lsmeans/_across years/Yield_scaled_cropsys.csv")
+multifunctionality_index_agronomy2 <-  read.csv("Model-output/lsmeans/_across years/multifunctionality_index_agronomy2_cropsys.csv")
 
-inorgN <- read.csv("Model-output/lsmeans/*across years/inorgN_cropsys.csv")
-GMC <- read.csv("Model-output/lsmeans/*across years/GMC_cropsys.csv")
-EEA_C <- read.csv("Model-output/lsmeans/*across years/EEA_C_cropsys.csv")
-EEA_N <- read.csv("Model-output/lsmeans/*across years/EEA_N_cropsys.csv")
-PHOS <- read.csv("Model-output/lsmeans/*across years/PHOS_cropsys.csv")
-WEC <- read.csv("Model-output/lsmeans/*across years/WEC_cropsys.csv")
-WEN <- read.csv("Model-output/lsmeans/*across years/WEN_cropsys.csv")
-MBC <- read.csv("Model-output/lsmeans/*across years/MBC_cropsys.csv")
-orgC <- read.csv("Model-output/lsmeans/*across years/orgC_cropsys.csv")
-totN <- read.csv("Model-output/lsmeans/*across years/totN_cropsys.csv")
-POC <- read.csv("Model-output/lsmeans/*across years/POC_cropsys.csv")
-MAOC <- read.csv("Model-output/lsmeans/*across years/MAOC_cropsys.csv")
-WAS <- read.csv("Model-output/lsmeans/*across years/WAS_cropsys.csv")
-multifunctionality_index_soil2 <- read.csv("Model-output/lsmeans/*across years/multifunctionality_index_soil2_cropsys.csv")
+inorgN <- read.csv("Model-output/lsmeans/_across years/inorgN_cropsys.csv")
+GMC <- read.csv("Model-output/lsmeans/_across years/GMC_cropsys.csv")
+EEA_C <- read.csv("Model-output/lsmeans/_across years/EEA_C_cropsys.csv")
+EEA_N <- read.csv("Model-output/lsmeans/_across years/EEA_N_cropsys.csv")
+PHOS <- read.csv("Model-output/lsmeans/_across years/PHOS_cropsys.csv")
+WEC <- read.csv("Model-output/lsmeans/_across years/WEC_cropsys.csv")
+WEN <- read.csv("Model-output/lsmeans/_across years/WEN_cropsys.csv")
+MBC <- read.csv("Model-output/lsmeans/_across years/MBC_cropsys.csv")
+orgC <- read.csv("Model-output/lsmeans/_across years/orgC_cropsys.csv")
+totN <- read.csv("Model-output/lsmeans/_across years/totN_cropsys.csv")
+POC <- read.csv("Model-output/lsmeans/_across years/POC_cropsys.csv")
+MAOC <- read.csv("Model-output/lsmeans/_across years/MAOC_cropsys.csv")
+WAS <- read.csv("Model-output/lsmeans/_across years/WAS_cropsys.csv")
+multifunctionality_index_soil2 <- read.csv("Model-output/lsmeans/_across years/multifunctionality_index_soil2_cropsys.csv")
 
 # back-transform scaled yield to get yield for corn/cotton/soy
 
@@ -351,18 +351,18 @@ cor_cover
 
 
 # import raw anova output
-weeds <- read.csv("Model-output/lsmeans/*across years/weeds_cropsys.csv")
-inputCN <- read.csv("Model-output/lsmeans/*across years/inputCN_cropsys.csv")
-#foliarN <-  read.csv("Model-output/lsmeans/*across years/tissue.N.percent_cropsys.csv")
-#foliarP <-  read.csv("Model-output/lsmeans/*across years/tissue.P.percent_cropsys.csv")
-#foliarK <-  read.csv("Model-output/lsmeans/*across years/tissue.K.percent_cropsys.csv")
-#foliarCa <-  read.csv("Model-output/lsmeans/*across years/tissue.Ca.percent_cropsys.csv")
-#foliarMg <-  read.csv("Model-output/lsmeans/*across years/tissue.Mg.percent_cropsys.csv")
-#foliarB <-  read.csv("Model-output/lsmeans/*across years/tissue.B.ppm_cropsys.csv")
-#foliarFe <-  read.csv("Model-output/lsmeans/*across years/tissue.Fe.ppm_cropsys.csv")
-#foliarMn <-  read.csv("Model-output/lsmeans/*across years/tissue.Mn.ppm_cropsys.csv")
-#foliarZn <-  read.csv("Model-output/lsmeans/*across years/tissue.Zn.ppm_cropsys.csv")
-Yield <-  read.csv("Model-output/lsmeans/*across years/Yield_std_cropsys.csv")
+weeds <- read.csv("Model-output/lsmeans/_across years/weeds_cropsys.csv")
+inputCN <- read.csv("Model-output/lsmeans/_across years/inputCN_cropsys.csv")
+#foliarN <-  read.csv("Model-output/lsmeans/_across years/tissue.N.percent_cropsys.csv")
+#foliarP <-  read.csv("Model-output/lsmeans/_across years/tissue.P.percent_cropsys.csv")
+#foliarK <-  read.csv("Model-output/lsmeans/_across years/tissue.K.percent_cropsys.csv")
+#foliarCa <-  read.csv("Model-output/lsmeans/_across years/tissue.Ca.percent_cropsys.csv")
+#foliarMg <-  read.csv("Model-output/lsmeans/_across years/tissue.Mg.percent_cropsys.csv")
+#foliarB <-  read.csv("Model-output/lsmeans/_across years/tissue.B.ppm_cropsys.csv")
+#foliarFe <-  read.csv("Model-output/lsmeans/_across years/tissue.Fe.ppm_cropsys.csv")
+#foliarMn <-  read.csv("Model-output/lsmeans/_across years/tissue.Mn.ppm_cropsys.csv")
+#foliarZn <-  read.csv("Model-output/lsmeans/_across years/tissue.Zn.ppm_cropsys.csv")
+Yield <-  read.csv("Model-output/lsmeans/_across years/Yield_std_cropsys.csv")
 
 # normalize means between 0 and 1
 weeds$response_std <- (weeds$response-max(weeds$response))/(min(weeds$response-max(weeds$response)))
@@ -430,13 +430,13 @@ Magron_table_merged2 <- cbind(Magron_table_merged, as.data.frame(agron_table)[,4
 
 
 # import raw anova output
-#inorgN <- read.csv("Model-output/lsmeans/*across years/inorgN_cropsys.csv")
-NAG <- read.csv("Model-output/lsmeans/*across years/NAG_cropsys.csv")
-WEC <- read.csv("Model-output/lsmeans/*across years/WEC_cropsys.csv")
-WEN <- read.csv("Model-output/lsmeans/*across years/WEN_cropsys.csv")
-#MAOC <- read.csv("Model-output/lsmeans/*across years/MAOC_cropsys.csv")
-#EEA_C <- read.csv("Model-output/lsmeans/*across years/EEA_C_cropsys.csv")
-WAS <- read.csv("Model-output/lsmeans/*across years/WAS_cropsys.csv")
+#inorgN <- read.csv("Model-output/lsmeans/_across years/inorgN_cropsys.csv")
+NAG <- read.csv("Model-output/lsmeans/_across years/NAG_cropsys.csv")
+WEC <- read.csv("Model-output/lsmeans/_across years/WEC_cropsys.csv")
+WEN <- read.csv("Model-output/lsmeans/_across years/WEN_cropsys.csv")
+#MAOC <- read.csv("Model-output/lsmeans/_across years/MAOC_cropsys.csv")
+#EEA_C <- read.csv("Model-output/lsmeans/_across years/EEA_C_cropsys.csv")
+WAS <- read.csv("Model-output/lsmeans/_across years/WAS_cropsys.csv")
 
 
 # normalize means between 0 and 1
@@ -586,7 +586,7 @@ fig_1 <- ggpubr::ggarrange(heat_agron_cover2, heat_soil_table_cover2, cor_cover,
 fig_2 <- ggpubr::ggarrange(heat_agron_cropsys, heat_soil_table_cropsys2, cor_cropsys, nrow=3, ncol=1, labels=c("B", "D", "F"))
 
 fig_benefits <- ggpubr::ggarrange(fig_1, fig_2, nrow=1, ncol=2)
-ggpubr::ggexport(fig_benefits, height=5000, width=4200, filename = "Figures/*across years/5_benefits_1.png", res = 400)
+ggpubr::ggexport(fig_benefits, height=5000, width=4200, filename = "Figures/_across years/5_benefits_1.png", res = 400)
 
 
 
@@ -598,9 +598,9 @@ ggpubr::ggexport(fig_benefits, height=5000, width=4200, filename = "Figures/*acr
 
 
 # import raw anova output
-# foliarS <-  read.csv("Model-output/lsmeans/*across years/tissue.S.percent_interactive-effect.csv")
-# foliarFe <-  read.csv("Model-output/lsmeans/*across years/tissue.Fe.ppm_interactive-effect.csv")
-# foliarMn <-  read.csv("Model-output/lsmeans/*across years/tissue.Mn.ppm_interactive-effect.csv")
+# foliarS <-  read.csv("Model-output/lsmeans/_across years/tissue.S.percent_interactive-effect.csv")
+# foliarFe <-  read.csv("Model-output/lsmeans/_across years/tissue.Fe.ppm_interactive-effect.csv")
+# foliarMn <-  read.csv("Model-output/lsmeans/_across years/tissue.Mn.ppm_interactive-effect.csv")
 
 
 # split between cropping systems
@@ -666,9 +666,9 @@ ggpubr::ggexport(fig_benefits, height=5000, width=4200, filename = "Figures/*acr
 
 
 # import raw anova output
-orgC <-  read.csv("Model-output/lsmeans/*across years/orgC_interactive-effect.csv")
-totN <-  read.csv("Model-output/lsmeans/*across years/totN_interactive-effect.csv")
-#EEA_C <-  read.csv("Model-output/lsmeans/*across years/EEA_C_interactive-effect.csv")
+orgC <-  read.csv("Model-output/lsmeans/_across years/orgC_interactive-effect.csv")
+totN <-  read.csv("Model-output/lsmeans/_across years/totN_interactive-effect.csv")
+#EEA_C <-  read.csv("Model-output/lsmeans/_across years/EEA_C_interactive-effect.csv")
 
 
 # split between cropping systems
@@ -783,10 +783,10 @@ write.csv(cropsys_table, "Tables/benefits-cover-cropsys.csv")
 
 
 # import raw anova output
-foliarP <-  read.csv("Model-output/lsmeans/*across years/tissue.P.percent_cover.csv")
-foliarB <-  read.csv("Model-output/lsmeans/*across years/tissue.B.ppm_cover.csv")
-foliarCu <-  read.csv("Model-output/lsmeans/*across years/tissue.Cu.ppm_cover.csv")
-foliarZn <-  read.csv("Model-output/lsmeans/*across years/tissue.Zn.ppm_cover.csv")
+foliarP <-  read.csv("Model-output/lsmeans/_across years/tissue.P.percent_cover.csv")
+foliarB <-  read.csv("Model-output/lsmeans/_across years/tissue.B.ppm_cover.csv")
+foliarCu <-  read.csv("Model-output/lsmeans/_across years/tissue.Cu.ppm_cover.csv")
+foliarZn <-  read.csv("Model-output/lsmeans/_across years/tissue.Zn.ppm_cover.csv")
 
 
 
@@ -814,15 +814,15 @@ write.csv(t(agron_table_means), "Tables/means-foliar nutrients-cover.csv")
 
 
 # import raw anova output
-foliarN <-  read.csv("Model-output/lsmeans/*across years/tissue.N.percent_cropsys.csv")
-foliarP <-  read.csv("Model-output/lsmeans/*across years/tissue.P.percent_cropsys.csv")
-foliarK <-  read.csv("Model-output/lsmeans/*across years/tissue.K.percent_cropsys.csv")
-foliarCa <-  read.csv("Model-output/lsmeans/*across years/tissue.Ca.percent_cropsys.csv")
-foliarMg <-  read.csv("Model-output/lsmeans/*across years/tissue.Mg.percent_cropsys.csv")
-foliarB <-  read.csv("Model-output/lsmeans/*across years/tissue.B.ppm_cropsys.csv")
-foliarFe <-  read.csv("Model-output/lsmeans/*across years/tissue.Fe.ppm_cropsys.csv")
-foliarMn <-  read.csv("Model-output/lsmeans/*across years/tissue.Mn.ppm_cropsys.csv")
-foliarZn <-  read.csv("Model-output/lsmeans/*across years/tissue.Zn.ppm_cropsys.csv")
+foliarN <-  read.csv("Model-output/lsmeans/_across years/tissue.N.percent_cropsys.csv")
+foliarP <-  read.csv("Model-output/lsmeans/_across years/tissue.P.percent_cropsys.csv")
+foliarK <-  read.csv("Model-output/lsmeans/_across years/tissue.K.percent_cropsys.csv")
+foliarCa <-  read.csv("Model-output/lsmeans/_across years/tissue.Ca.percent_cropsys.csv")
+foliarMg <-  read.csv("Model-output/lsmeans/_across years/tissue.Mg.percent_cropsys.csv")
+foliarB <-  read.csv("Model-output/lsmeans/_across years/tissue.B.ppm_cropsys.csv")
+foliarFe <-  read.csv("Model-output/lsmeans/_across years/tissue.Fe.ppm_cropsys.csv")
+foliarMn <-  read.csv("Model-output/lsmeans/_across years/tissue.Mn.ppm_cropsys.csv")
+foliarZn <-  read.csv("Model-output/lsmeans/_across years/tissue.Zn.ppm_cropsys.csv")
 
 
 # extract means 

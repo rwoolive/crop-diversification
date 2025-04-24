@@ -37,7 +37,7 @@ dat$Season <- factor(dat$Season, levels(dat$Season)[c(2,3,1)])
 
 
 # plot tissue.Fe.ppm_scaled by cropsys cover and time
-testlet <- read.csv("Model-output/lsmeans/*across years/tissue.Fe.ppm_scaled_cover_cropsys_time.csv")
+testlet <- read.csv("Model-output/lsmeans/_across years/tissue.Fe.ppm_scaled_cover_cropsys_time.csv")
 testlet$Cover <- as.factor(testlet$Cover); testlet$Cover <- factor(testlet$Cover , levels(testlet$Cover)[c(2,4,1,5,3)])
 testlet$Cropping.system <- as.factor(testlet$Cropping.system); testlet$Cropping.system <- factor(testlet$Cropping.system , levels(testlet$Cropping.system)[c(1,4,3,2)])
 
@@ -69,7 +69,7 @@ p
 
 
 # export figure
-ggpubr::ggexport(p, height=1500, width=2100, filename = "Figures/*across years/*tissue.Fe.ppm_scaled_cropsys_cover_time.png", res = 400)
+ggpubr::ggexport(p, height=1500, width=2100, filename = "Figures/_across years/_tissue.Fe.ppm_scaled_cropsys_cover_time.png", res = 400)
 
 
 
@@ -79,7 +79,7 @@ ggpubr::ggexport(p, height=1500, width=2100, filename = "Figures/*across years/*
 
 
 
-testlet <- read.csv("Model-output/lsmeans/*across years/tissue.N.percent_scaled_cropsys_time.csv")
+testlet <- read.csv("Model-output/lsmeans/_across years/tissue.N.percent_scaled_cropsys_time.csv")
 #testlet$Cover <- as.factor(testlet$Cover); testlet$Cover <- factor(testlet$Cover , levels(testlet$Cover)[c(2,4,1,5,3)])
 testlet$Cropping.system <- as.factor(testlet$Cropping.system); testlet$Cropping.system <- factor(testlet$Cropping.system , levels(testlet$Cropping.system)[c(1,4,3,2)])
 
@@ -110,7 +110,7 @@ p
 
 
 # export figure
-ggpubr::ggexport(p, height=800, width=1600, filename = "Figures/*across years/*tissue.N.percent_scaled_cropsys_time.png", res = 400)
+ggpubr::ggexport(p, height=800, width=1600, filename = "Figures/_across years/_tissue.N.percent_scaled_cropsys_time.png", res = 400)
 
 
 
@@ -122,7 +122,7 @@ ggpubr::ggexport(p, height=800, width=1600, filename = "Figures/*across years/*t
 
 
 
-testlet <- read.csv("Model-output/lsmeans/*across years/tissue.P.percent_scaled_cropsys_time.csv")
+testlet <- read.csv("Model-output/lsmeans/_across years/tissue.P.percent_scaled_cropsys_time.csv")
 #testlet$Cover <- as.factor(testlet$Cover); testlet$Cover <- factor(testlet$Cover , levels(testlet$Cover)[c(2,4,1,5,3)])
 testlet$Cropping.system <- as.factor(testlet$Cropping.system); testlet$Cropping.system <- factor(testlet$Cropping.system , levels(testlet$Cropping.system)[c(1,4,3,2)])
 
@@ -153,7 +153,7 @@ p
 
 
 # export figure
-ggpubr::ggexport(p, height=800, width=1600, filename = "Figures/*across years/*tissue.P.percent_scaled_cropsys_time.png", res = 400)
+ggpubr::ggexport(p, height=800, width=1600, filename = "Figures/_across years/_tissue.P.percent_scaled_cropsys_time.png", res = 400)
 
 
 
@@ -161,7 +161,7 @@ ggpubr::ggexport(p, height=800, width=1600, filename = "Figures/*across years/*t
 
 
 # plot multifunctionality_index_agronomy2 by cover and time
-testlet <- read.csv("Model-output/lsmeans/*across years/tissue.Mg.percent_scaled_cropsys_time.csv")
+testlet <- read.csv("Model-output/lsmeans/_across years/tissue.Mg.percent_scaled_cropsys_time.csv")
 #testlet$Cover <- as.factor(testlet$Cover); testlet$Cover <- factor(testlet$Cover , levels(testlet$Cover)[c(2,4,1,5,3)])
 testlet$Cropping.system <- as.factor(testlet$Cropping.system); testlet$Cropping.system <- factor(testlet$Cropping.system , levels(testlet$Cropping.system)[c(1,4,3,2)])
 
@@ -192,7 +192,7 @@ p
 
 
 # export figure
-ggpubr::ggexport(p, height=800, width=1600, filename = "Figures/*across years/*tissue.Mg.percent_scaled_cropsys_time.png", res = 400)
+ggpubr::ggexport(p, height=800, width=1600, filename = "Figures/_across years/_tissue.Mg.percent_scaled_cropsys_time.png", res = 400)
 
 
 
@@ -200,7 +200,7 @@ ggpubr::ggexport(p, height=800, width=1600, filename = "Figures/*across years/*t
 
 
 # plot multifunctionality_index_agronomy2 by cover and time
-testlet <- read.csv("Model-output/lsmeans/*across years/tissue.B.ppm_scaled_cropsys_time.csv")
+testlet <- read.csv("Model-output/lsmeans/_across years/tissue.B.ppm_scaled_cropsys_time.csv")
 #testlet$Cover <- as.factor(testlet$Cover); testlet$Cover <- factor(testlet$Cover , levels(testlet$Cover)[c(2,4,1,5,3)])
 testlet$Cropping.system <- as.factor(testlet$Cropping.system); testlet$Cropping.system <- factor(testlet$Cropping.system , levels(testlet$Cropping.system)[c(1,4,3,2)])
 
@@ -231,7 +231,7 @@ p
 
 
 # export figure
-ggpubr::ggexport(p, height=800, width=1600, filename = "Figures/*across years/*tissue.B.ppm_scaled_cropsys_time.png", res = 400)
+ggpubr::ggexport(p, height=800, width=1600, filename = "Figures/_across years/_tissue.B.ppm_scaled_cropsys_time.png", res = 400)
 
 
 
@@ -241,7 +241,7 @@ ggpubr::ggexport(p, height=800, width=1600, filename = "Figures/*across years/*t
 
 
 # plot multifunctionality_index_agronomy2 by cover and time
-testlet <- read.csv("Model-output/lsmeans/*across years/tissue.Fe.ppm_scaled_cropsys_time.csv")
+testlet <- read.csv("Model-output/lsmeans/_across years/tissue.Fe.ppm_scaled_cropsys_time.csv")
 #testlet$Cover <- as.factor(testlet$Cover); testlet$Cover <- factor(testlet$Cover , levels(testlet$Cover)[c(2,4,1,5,3)])
 testlet$Cropping.system <- as.factor(testlet$Cropping.system); testlet$Cropping.system <- factor(testlet$Cropping.system , levels(testlet$Cropping.system)[c(1,4,3,2)])
 
@@ -272,7 +272,7 @@ p
 
 
 # export figure
-ggpubr::ggexport(p, height=800, width=1600, filename = "Figures/*across years/*tissue.Fe.ppm_scaled_cropsys_time.png", res = 400)
+ggpubr::ggexport(p, height=800, width=1600, filename = "Figures/_across years/_tissue.Fe.ppm_scaled_cropsys_time.png", res = 400)
 
 
 
@@ -282,7 +282,7 @@ ggpubr::ggexport(p, height=800, width=1600, filename = "Figures/*across years/*t
 
 
 # plot multifunctionality_index_agronomy2 by cover and time
-testlet <- read.csv("Model-output/lsmeans/*across years/tissue.Zn.ppm_scaled_cropsys_time.csv")
+testlet <- read.csv("Model-output/lsmeans/_across years/tissue.Zn.ppm_scaled_cropsys_time.csv")
 #testlet$Cover <- as.factor(testlet$Cover); testlet$Cover <- factor(testlet$Cover , levels(testlet$Cover)[c(2,4,1,5,3)])
 testlet$Cropping.system <- as.factor(testlet$Cropping.system); testlet$Cropping.system <- factor(testlet$Cropping.system , levels(testlet$Cropping.system)[c(1,4,3,2)])
 
@@ -313,7 +313,7 @@ p
 
 
 # export figure
-ggpubr::ggexport(p, height=800, width=1600, filename = "Figures/*across years/*tissue.Zn.ppm_scaled_cropsys_time.png", res = 400)
+ggpubr::ggexport(p, height=800, width=1600, filename = "Figures/_across years/_tissue.Zn.ppm_scaled_cropsys_time.png", res = 400)
 
 
 
@@ -325,7 +325,7 @@ ggpubr::ggexport(p, height=800, width=1600, filename = "Figures/*across years/*t
 
 
 # plot multifunctionality_index_agronomy2 by cover and time
-testlet <- read.csv("Model-output/lsmeans/*across years/tissue.Na.ppm_scaled_cropsys_time.csv")
+testlet <- read.csv("Model-output/lsmeans/_across years/tissue.Na.ppm_scaled_cropsys_time.csv")
 #testlet$Cover <- as.factor(testlet$Cover); testlet$Cover <- factor(testlet$Cover , levels(testlet$Cover)[c(2,4,1,5,3)])
 testlet$Cropping.system <- as.factor(testlet$Cropping.system); testlet$Cropping.system <- factor(testlet$Cropping.system , levels(testlet$Cropping.system)[c(1,4,3,2)])
 
@@ -356,7 +356,7 @@ p
 
 
 # export figure
-ggpubr::ggexport(p, height=800, width=1600, filename = "Figures/*across years/*tissue.Na.ppm_scaled_cropsys_time.png", res = 400)
+ggpubr::ggexport(p, height=800, width=1600, filename = "Figures/_across years/_tissue.Na.ppm_scaled_cropsys_time.png", res = 400)
 
 
 
@@ -369,7 +369,7 @@ ggpubr::ggexport(p, height=800, width=1600, filename = "Figures/*across years/*t
 
 
 # plot multifunctionality_index_agronomy2 by cover and time
-testlet <- read.csv("Model-output/lsmeans/*across years/multifunctionality_index_nutrition2_cropsys_time.csv")
+testlet <- read.csv("Model-output/lsmeans/_across years/multifunctionality_index_nutrition2_cropsys_time.csv")
 #testlet$Cover <- as.factor(testlet$Cover); testlet$Cover <- factor(testlet$Cover , levels(testlet$Cover)[c(2,4,1,5,3)])
 testlet$Cropping.system <- as.factor(testlet$Cropping.system); testlet$Cropping.system <- factor(testlet$Cropping.system , levels(testlet$Cropping.system)[c(1,4,3,2)])
 
@@ -400,7 +400,7 @@ p
 
 
 # export figure
-ggpubr::ggexport(p, height=800, width=1600, filename = "Figures/*across years/*multifunctionality_index_nutrition2_cropsys_time.png", res = 400)
+ggpubr::ggexport(p, height=800, width=1600, filename = "Figures/_across years/_multifunctionality_index_nutrition2_cropsys_time.png", res = 400)
 
 
 
@@ -416,7 +416,7 @@ ggpubr::ggexport(p, height=800, width=1600, filename = "Figures/*across years/*m
 ############### S
 
 
-testlet <- read.csv("Model-output/lsmeans/*across years/tissue.S.percent_scaled_cover_time.csv")
+testlet <- read.csv("Model-output/lsmeans/_across years/tissue.S.percent_scaled_cover_time.csv")
 testlet$Cover <- as.factor(testlet$Cover); testlet$Cover <- factor(testlet$Cover , levels(testlet$Cover)[c(2,4,1,5,3)])
 #testlet$Cropping.system <- as.factor(testlet$Cropping.system); testlet$Cropping.system <- factor(testlet$Cropping.system , levels(testlet$Cropping.system)[c(1,4,3,2)])
 
@@ -447,7 +447,7 @@ p
 
 
 # export figure
-ggpubr::ggexport(p, height=800, width=1600, filename = "Figures/*across years/*tissue.S.percent_scaled_cover_time.png", res = 400)
+ggpubr::ggexport(p, height=800, width=1600, filename = "Figures/_across years/_tissue.S.percent_scaled_cover_time.png", res = 400)
 
 
 
@@ -462,7 +462,7 @@ ggpubr::ggexport(p, height=800, width=1600, filename = "Figures/*across years/*t
 ############### Fe
 
 
-testlet <- read.csv("Model-output/lsmeans/*across years/tissue.Fe.ppm_scaled_cover_time.csv")
+testlet <- read.csv("Model-output/lsmeans/_across years/tissue.Fe.ppm_scaled_cover_time.csv")
 testlet$Cover <- as.factor(testlet$Cover); testlet$Cover <- factor(testlet$Cover , levels(testlet$Cover)[c(2,4,1,5,3)])
 #testlet$Cropping.system <- as.factor(testlet$Cropping.system); testlet$Cropping.system <- factor(testlet$Cropping.system , levels(testlet$Cropping.system)[c(1,4,3,2)])
 
@@ -493,7 +493,7 @@ p
 
 
 # export figure
-ggpubr::ggexport(p, height=800, width=1600, filename = "Figures/*across years/*tissue.Fe.ppm_scaled_cover_time.png", res = 400)
+ggpubr::ggexport(p, height=800, width=1600, filename = "Figures/_across years/_tissue.Fe.ppm_scaled_cover_time.png", res = 400)
 
 
 
@@ -510,7 +510,7 @@ ggpubr::ggexport(p, height=800, width=1600, filename = "Figures/*across years/*t
 ############### Fe
 
 
-testlet <- read.csv("Model-output/lsmeans/*across years/multifunctionality_index_nutrition2_cover_time.csv")
+testlet <- read.csv("Model-output/lsmeans/_across years/multifunctionality_index_nutrition2_cover_time.csv")
 testlet$Cover <- as.factor(testlet$Cover); testlet$Cover <- factor(testlet$Cover , levels(testlet$Cover)[c(2,4,1,5,3)])
 #testlet$Cropping.system <- as.factor(testlet$Cropping.system); testlet$Cropping.system <- factor(testlet$Cropping.system , levels(testlet$Cropping.system)[c(1,4,3,2)])
 
@@ -541,7 +541,7 @@ p
 
 
 # export figure
-ggpubr::ggexport(p, height=800, width=1600, filename = "Figures/*across years/*multifunctionality_index_nutrition2_cover_time.png", res = 400)
+ggpubr::ggexport(p, height=800, width=1600, filename = "Figures/_across years/_multifunctionality_index_nutrition2_cover_time.png", res = 400)
 
 
 
@@ -554,7 +554,7 @@ ggpubr::ggexport(p, height=800, width=1600, filename = "Figures/*across years/*m
 
 
 # plot tissue.Fe.ppm_scaled by cropsys and cover
-testlet <- read.csv("Model-output/lsmeans/*across years/tissue.Fe.ppm_scaled_cover_cropsys.csv")
+testlet <- read.csv("Model-output/lsmeans/_across years/tissue.Fe.ppm_scaled_cover_cropsys.csv")
 testlet$Cover <- as.factor(testlet$Cover); testlet$Cover <- factor(testlet$Cover , levels(testlet$Cover)[c(2,4,1,5,3)])
 testlet$Cropping.system <- as.factor(testlet$Cropping.system); testlet$Cropping.system <- factor(testlet$Cropping.system , levels(testlet$Cropping.system)[c(1,4,3,2)])
 
@@ -579,7 +579,7 @@ p
 
 
 # export figure
-ggpubr::ggexport(p, height=1500, width=2100, filename = "Figures/*across years/*tissue.Fe.ppm_scaled_cropsys_cover.png", res = 400)
+ggpubr::ggexport(p, height=1500, width=2100, filename = "Figures/_across years/_tissue.Fe.ppm_scaled_cropsys_cover.png", res = 400)
 
 
 
@@ -588,7 +588,7 @@ ggpubr::ggexport(p, height=1500, width=2100, filename = "Figures/*across years/*
 
 
 # plot tissue.S.ppm_scaled by cropsys and cover
-testlet <- read.csv("Model-output/lsmeans/*across years/tissue.S.percent_scaled_cover.csv")
+testlet <- read.csv("Model-output/lsmeans/_across years/tissue.S.percent_scaled_cover.csv")
 testlet$Cover <- as.factor(testlet$Cover); testlet$Cover <- factor(testlet$Cover , levels(testlet$Cover)[c(2,4,1,5,3)])
 #testlet$Cropping.system <- as.factor(testlet$Cropping.system); testlet$Cropping.system <- factor(testlet$Cropping.system , levels(testlet$Cropping.system)[c(1,4,3,2)])
 
@@ -613,7 +613,7 @@ p
 
 
 # export figure
-ggpubr::ggexport(p, height=1000, width=1800, filename = "Figures/*across years/*tissue.S.percent_scaled_cover.png", res = 400)
+ggpubr::ggexport(p, height=1000, width=1800, filename = "Figures/_across years/_tissue.S.percent_scaled_cover.png", res = 400)
 
 
 

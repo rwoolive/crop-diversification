@@ -447,7 +447,7 @@ dat2$multifunctionality_index_nutrition2 <- rowMeans(dat_scaled, na.rm = TRUE)
 # 
 # }
 # mod_comp
-# write.csv(mod_comp, paste0("Model-output/anova/*model-comparison.csv"))
+# write.csv(mod_comp, paste0("Model-output/anova/_model-comparison.csv"))
 
 
 
@@ -473,7 +473,7 @@ dat2$multifunctionality_index_nutrition2 <- rowMeans(dat_scaled, na.rm = TRUE)
 
 ################################################
 
-mod_comp <- read.csv(paste0("Model-output/anova/*model-comparison.csv"))
+mod_comp <- read.csv(paste0("Model-output/anova/_model-comparison.csv"))
 resp_compsym <- mod_comp$resp[which(mod_comp$bestmod=="fit_corCompSymm")] # responses that require correlation structure
 resp_normal <- mod_comp$resp[which(mod_comp$bestmod=="fit")] # responses that do not require correlation structure
 
@@ -556,9 +556,9 @@ for (i in 1:nrow(resp)) { # nrow(resp)
 # export model stats
   mod.out <- as.data.frame(anova(fit, type="marginal")) 
   mod.out2 <- mod.out %>% mutate_if(is.numeric, round, digits=3)
-  #write.csv(mod.out2, paste0("Model-output/anova/*across years/",response_var,".csv"))
+  #write.csv(mod.out2, paste0("Model-output/anova/_across years/",response_var,".csv"))
   resp[i,c(3:9)] <- paste0("F=", round(mod.out2$`F-value`,2), ", p=", mod.out2$`p-value`)[2:8]
-  #write.csv(round(r.squaredGLMM(fit),2), paste0("Model-output/anova/*across years/",response_var,"_rsq.csv")) # marginal: explained by fixed effects; conditional: explained by entire model
+  #write.csv(round(r.squaredGLMM(fit),2), paste0("Model-output/anova/_across years/",response_var,"_rsq.csv")) # marginal: explained by fixed effects; conditional: explained by entire model
   resp$rsq[i] <- paste0(round(r.squaredGLMM(fit)[1],2), ", ", round(r.squaredGLMM(fit)[2],2))
   
 
@@ -570,7 +570,7 @@ for (i in 1:nrow(resp)) { # nrow(resp)
   testlet$.group <- gsub(" ", "", testlet$.group)
   testlet_df_cover_cropsys_time <- testlet
   testlet_df_cover_cropsys_time <- testlet_df_cover_cropsys_time %>% dplyr::mutate_each_(funs(factor(.)),c("Cover", "Cropping.system"))
-  write.csv(testlet_df_cover_cropsys_time, paste0("Model-output/lsmeans/*across years/",response_var,"_cover_cropsys_time.csv"))
+  write.csv(testlet_df_cover_cropsys_time, paste0("Model-output/lsmeans/_across years/",response_var,"_cover_cropsys_time.csv"))
  
   ### tukey: Cover * Cropping system
   test1 <- emmeans(fit, ~ Cover, by=c("Cropping.system"))
@@ -579,7 +579,7 @@ for (i in 1:nrow(resp)) { # nrow(resp)
   testlet$.group <- gsub(" ", "", testlet$.group)
   testlet_df_cover_cropsys <- testlet
   testlet_df_cover_cropsys <- testlet_df_cover_cropsys %>% dplyr::mutate_each_(funs(factor(.)),c("Cover", "Cropping.system"))
-  write.csv(testlet_df_cover_cropsys, paste0("Model-output/lsmeans/*across years/",response_var,"_cover_cropsys.csv"))
+  write.csv(testlet_df_cover_cropsys, paste0("Model-output/lsmeans/_across years/",response_var,"_cover_cropsys.csv"))
   
   ### tukey: Cropping.system * time
   test1 <- emmeans(fit, ~ Cropping.system, by=time_var)
@@ -624,15 +624,15 @@ for (i in 1:nrow(resp)) { # nrow(resp)
   testlet_df_time <- testlet_df_time %>% dplyr::mutate_each_(funs(factor(.)),c("Year"))
   
   # export lsmeans
-  write.csv(testlet_df_cropsys_time, paste0("Model-output/lsmeans/*across years/",response_var,"_cropsys_time.csv"))
-  write.csv(testlet_df_cover_time, paste0("Model-output/lsmeans/*across years/",response_var,"_cover_time.csv"))
-  write.csv(testlet_df_cropsys, paste0("Model-output/lsmeans/*across years/",response_var,"_cropsys.csv"))
-  write.csv(testlet_df_cover, paste0("Model-output/lsmeans/*across years/",response_var,"_cover.csv"))
-  write.csv(testlet_df_time, paste0("Model-output/lsmeans/*across years/",response_var,"_time.csv"))
+  write.csv(testlet_df_cropsys_time, paste0("Model-output/lsmeans/_across years/",response_var,"_cropsys_time.csv"))
+  write.csv(testlet_df_cover_time, paste0("Model-output/lsmeans/_across years/",response_var,"_cover_time.csv"))
+  write.csv(testlet_df_cropsys, paste0("Model-output/lsmeans/_across years/",response_var,"_cropsys.csv"))
+  write.csv(testlet_df_cover, paste0("Model-output/lsmeans/_across years/",response_var,"_cover.csv"))
+  write.csv(testlet_df_time, paste0("Model-output/lsmeans/_across years/",response_var,"_time.csv"))
   
 }
 resp
-write.csv(resp, paste0("Model-output/anova/*across years/*all.csv"))
+write.csv(resp, paste0("Model-output/anova/_across years/_all.csv"))
 
 
 
@@ -708,9 +708,9 @@ for (i in 1:nrow(resp)) { # nrow(resp)
   # export model stats
   mod.out <- as.data.frame(anova(fit, type="marginal")) 
   mod.out2 <- mod.out %>% mutate_if(is.numeric, round, digits=3)
-  #write.csv(mod.out2, paste0("Model-output/anova/*across years/",response_var,".csv"))
+  #write.csv(mod.out2, paste0("Model-output/anova/_across years/",response_var,".csv"))
   resp[i,c(5)] <- paste0("F=", round(mod.out2$`F-value`,2), ", p=", mod.out2$`p-value`)[2]
-  #write.csv(round(r.squaredGLMM(fit),2), paste0("Model-output/anova/*across years/",response_var,"_rsq.csv")) # marginal: explained by fixed effects; conditional: explained by entire model
+  #write.csv(round(r.squaredGLMM(fit),2), paste0("Model-output/anova/_across years/",response_var,"_rsq.csv")) # marginal: explained by fixed effects; conditional: explained by entire model
   resp$rsq[i] <- paste0(round(r.squaredGLMM(fit)[1],2), ", ", round(r.squaredGLMM(fit)[2],2))
   
   ### tukey: Cover 
@@ -722,7 +722,7 @@ for (i in 1:nrow(resp)) { # nrow(resp)
   testlet_df_cover <- testlet_df_cover %>% dplyr::mutate_each_(funs(factor(.)),c("Cover"))
   
   # export lsmeans
-  write.csv(testlet_df_cover, paste0("Model-output/lsmeans/*across years/",response_var,"_cover.csv"))
+  write.csv(testlet_df_cover, paste0("Model-output/lsmeans/_across years/",response_var,"_cover.csv"))
   }
 
   
@@ -756,9 +756,9 @@ for (i in 1:nrow(resp)) { # nrow(resp)
   # export model stats
   mod.out <- as.data.frame(anova(fit, type="marginal")) 
   mod.out2 <- mod.out %>% mutate_if(is.numeric, round, digits=3)
-  #write.csv(mod.out2, paste0("Model-output/anova/*across years/",response_var,".csv"))
+  #write.csv(mod.out2, paste0("Model-output/anova/_across years/",response_var,".csv"))
   resp[i,c(5:7)] <- paste0("F=", round(mod.out2$`F-value`,2), ", p=", mod.out2$`p-value`)[2:4]
-  #write.csv(round(r.squaredGLMM(fit),2), paste0("Model-output/anova/*across years/",response_var,"_rsq.csv")) # marginal: explained by fixed effects; conditional: explained by entire model
+  #write.csv(round(r.squaredGLMM(fit),2), paste0("Model-output/anova/_across years/",response_var,"_rsq.csv")) # marginal: explained by fixed effects; conditional: explained by entire model
   resp$rsq[i] <- paste0(round(r.squaredGLMM(fit)[1],2), ", ", round(r.squaredGLMM(fit)[2],2))
   
   ### tukey: Cover * Cropping.system
@@ -786,13 +786,13 @@ for (i in 1:nrow(resp)) { # nrow(resp)
   testlet_df_cover <- testlet_df_cover %>% dplyr::mutate_each_(funs(factor(.)),c("Cover"))
   
   # export lsmeans
-  write.csv(testlet_df_cover_cropsys, paste0("Model-output/lsmeans/*across years/",response_var,"_cover_cropsys.csv"))
-  write.csv(testlet_df_cropsys, paste0("Model-output/lsmeans/*across years/",response_var,"_cropsys.csv"))
-  write.csv(testlet_df_cover, paste0("Model-output/lsmeans/*across years/",response_var,"_cover.csv"))
+  write.csv(testlet_df_cover_cropsys, paste0("Model-output/lsmeans/_across years/",response_var,"_cover_cropsys.csv"))
+  write.csv(testlet_df_cropsys, paste0("Model-output/lsmeans/_across years/",response_var,"_cropsys.csv"))
+  write.csv(testlet_df_cover, paste0("Model-output/lsmeans/_across years/",response_var,"_cover.csv"))
   }
 }
 resp
-write.csv(resp, paste0("Model-output/anova/*across years/*all_yield.csv"))
+write.csv(resp, paste0("Model-output/anova/_across years/_all_yield.csv"))
 
 
 
