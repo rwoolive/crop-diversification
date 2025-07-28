@@ -124,7 +124,7 @@ testlet$Cropping.system <- as.factor(testlet$Cropping.system); testlet$Cropping.
 
 p <- ggplot(data=testlet, aes(x=YearN, y=response, color=Cropping.system)) +
   theme_minimal() + labs(y=expression(paste("Gravimetric moisture (g g"^-1,")"))) + labs(color="Cropping system") +
-  geom_line() +
+  #geom_line() +
   geom_point(size = 2, shape = 16, aes(x = YearN, y = response, color = Cropping.system)) + 
   geom_errorbar(aes(ymin = response-SE, ymax = response+SE), width=0.1) +
   scale_color_manual(values = cropsyscols[c(1:4)]) +
@@ -138,7 +138,7 @@ p <- ggplot(data=testlet, aes(x=YearN, y=response, color=Cropping.system)) +
   scale_x_continuous(breaks = c(2,3,4),  labels = c( c("2021", "2022", "2023"))) +
 ggrepel::geom_text_repel(
   data = testlet[which(testlet$YearN %in% c(3)),], segment.linetype = "dotted",
-  aes(x = YearN, y = response, label = .group),color="black",
+  aes(x = YearN, y = response, label = .group,color=Cropping.system),
   size = 2.5,
   direction = "y",          # Adjusts labels only vertically
   nudge_x = 0.5,            # Nudges labels slightly to the right
@@ -149,7 +149,7 @@ p
 
 
 # export figure
-ggpubr::ggexport(p, height=1000, width=1800, filename = "Figures/_across years/_GMC_cropsys_time.png", res = 400)
+ggpubr::ggexport(p, height=1000, width=2000, filename = "Figures/_across years/_GMC_cropsys_time.png", res = 400)
 
 
 

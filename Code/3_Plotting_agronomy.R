@@ -39,7 +39,7 @@ multifunctionality_index_agronomy2_ylim <- c(0.3,0.7)
 p <- ggplot(data=testlet, aes(x=YearN, y=response, color=Cover)) +
   theme_minimal() + labs(y=expression(paste("Agronomic multifunctionality"))) + labs(fill="Cover") +
   scale_color_discrete() +
-  geom_line() +
+  #geom_line() +
   geom_point(size = 2, shape = 16, aes(x = YearN, y = response, color = Cover)) + 
   geom_errorbar(aes(ymin = response-SE, ymax = response+SE), width=0.1) +
   scale_color_manual(values = covercols[c(1:5)], labels = c(levels(dat2$Cover)[1:4], "Five-species mix")) +
@@ -54,7 +54,7 @@ p <- ggplot(data=testlet, aes(x=YearN, y=response, color=Cover)) +
   scale_x_continuous(breaks = c(2,3,4),  labels = c( c("2021", "2022", "2023"))) +
   ggrepel::geom_text_repel(
     data = testlet[which(testlet$YearN %in% c(2,3,4)),], segment.linetype = "dotted",
-    aes(x = YearN, y = response, label = .group),color="black",
+    aes(x = YearN, y = response, label = .group, color = Cover),#color="black",
     size = 2.5,
     direction = "y",          # Adjusts labels only vertically
     nudge_x = 0.5,            # Nudges labels slightly to the right
@@ -177,7 +177,7 @@ mean(testlet$response)
 
 p <- ggplot(data=testlet, aes(x=YearN, y=response, color=Cover)) +
   theme_minimal() + labs(y=expression(paste("Cover crop biomass (Mg ha"^-1,"yr"^-1,")"))) + labs(color="Cover") +
-  geom_line() +
+  #geom_line() +
   geom_point(size = 2, shape = 16, aes(x = YearN, y = response, color = Cover)) + 
   geom_errorbar(aes(ymin = response-SE, ymax = response+SE), width=0.1) +
   scale_color_manual(values = covercols[c(2:5)], labels = c(levels(dat2$Cover)[2:4], "Five-species mix")) +
@@ -192,7 +192,7 @@ p <- ggplot(data=testlet, aes(x=YearN, y=response, color=Cover)) +
   scale_x_continuous(breaks = c(2,3,4),  labels = c( c("2021", "2022", "2023"))) +
   ggrepel::geom_text_repel(
     data = testlet[which(testlet$YearN %in% c(2,3)),], segment.linetype = "dotted",
-    aes(x = YearN, y = response, label = .group),color="black",
+    aes(x = YearN, y = response, label = .group,color=Cover),
     size = 2.5,
     direction = "y",          # Adjusts labels only vertically
     nudge_x = 0.5,            # Nudges labels slightly to the right
@@ -272,7 +272,7 @@ testlet$Cover <- as.factor(testlet$Cover); testlet$Cover <- factor(testlet$Cover
 
 p <- ggplot(data=testlet, aes(x=YearN, y=response, color=Cover)) +
   theme_minimal() + labs(y=expression(paste("C inputs (Mg ha"^-1,"yr"^-1,")"))) + labs(color="Cover") +
-  geom_line() +
+  #geom_line() +
   geom_point(size = 2, shape = 16, aes(x = YearN, y = response, color = Cover)) + 
   geom_errorbar(aes(ymin = response-SE, ymax = response+SE), width=0.1) +
   scale_color_manual(values = covercols[c(1:5)], labels = c(levels(dat2$Cover)[1:4], "Five-species mix")) +
@@ -287,7 +287,7 @@ p <- ggplot(data=testlet, aes(x=YearN, y=response, color=Cover)) +
   scale_x_continuous(breaks = c(2,3,4),  labels = c( c("2021", "2022", "2023"))) +
   ggrepel::geom_text_repel(
     data = testlet[which(testlet$YearN %in% c(2,3,4)),], segment.linetype = "dotted",
-    aes(x = YearN, y = response, label = .group),color="black",
+    aes(x = YearN, y = response, label = .group,color=Cover),
     size = 2.5,
     direction = "y",          # Adjusts labels only vertically
     nudge_x = 0.5,            # Nudges labels slightly to the right
@@ -346,7 +346,7 @@ testlet$Cover <- as.factor(testlet$Cover); testlet$Cover <- factor(testlet$Cover
 
 p <- ggplot(data=testlet, aes(x=YearN, y=response, color=Cover)) +
   theme_minimal() + labs(y=expression(paste("N inputs (kg ha"^-1,"yr"^-1,")"))) + labs(color="Cover") +
-  geom_line() +
+  #geom_line() +
   geom_point(size = 2, shape = 16, aes(x = YearN, y = response, color = Cover)) + 
   geom_errorbar(aes(ymin = response-SE, ymax = response+SE), width=0.1) +
   scale_color_manual(values = covercols[c(1:5)], labels = c(levels(dat2$Cover)[1:4], "Five-species mix")) +
@@ -361,7 +361,7 @@ p <- ggplot(data=testlet, aes(x=YearN, y=response, color=Cover)) +
   scale_x_continuous(breaks = c(2,3,4),  labels = c( c("2021", "2022", "2023"))) +
   ggrepel::geom_text_repel(
     data = testlet[which(testlet$YearN %in% c(2,3,4)),], segment.linetype = "dotted",
-    aes(x = YearN, y = response, label = .group),color="black",
+    aes(x = YearN, y = response, label = .group,color=Cover),
     size = 2.5,
     direction = "y",          # Adjusts labels only vertically
     nudge_x = 0.5,            # Nudges labels slightly to the right
@@ -846,6 +846,78 @@ dat4 <-  dat2 %>%
 
 
 
+resp <- data.frame(Cropping.system = rep(levels(dat2$Cropping.system), each = 3),
+                   Year = rep(levels(dat2$Year), 4),
+                   cover = rep(NA, 12),
+                   rsq = rep(NA, 12),
+                   normality = rep(NA, 12))
+
+# Loop through responses and fit models
+for (i in 1:nrow(resp)) { # nrow(resp)
+  response_var <- "Yield_Mgha"
+  cs_var <-  resp$Cropping.system[i]  # Current response variable
+  time_var <- resp$Year[i]    # Current time variable
+  
+  # Fit the model
+   fit <- lme(
+    fixed = as.formula(paste("(", response_var, ") ~ Cover ")),
+    random = ~ 1 | Rep,
+    #weights = varIdent(form = ~ 1 | Cover),
+    data = dat2[which(dat2$Cropping.system == cs_var & dat2$Year == time_var),],
+    na.action = na.omit)
+  
+
+  # check for normality
+  resid <- residuals(fit)
+  resp$normality[i] <- shapiro.test(resid)$p.value
+  
+  # export model stats
+  mod.out <- as.data.frame(anova(fit, type="marginal")) 
+  mod.out2 <- mod.out %>% mutate_if(is.numeric, round, digits=3)
+  #write.csv(mod.out2, paste0("Model-output/anova/_across years/",response_var,".csv"))
+  resp[i,"cover"] <- paste0("F=", round(mod.out2$`F-value`,2), ", p=", mod.out2$`p-value`)[2]
+  #write.csv(round(r.squaredGLMM(fit),2), paste0("Model-output/anova/_across years/",response_var,"_rsq.csv")) # marginal: explained by fixed effects; conditional: explained by entire model
+  resp$rsq[i] <- paste0(round(r.squaredGLMM(fit)[1],2), ", ", round(r.squaredGLMM(fit)[2],2))
+  
+  
+  ### tukey: Cover 
+  test1 <- emmeans(fit, ~ Cover)
+  testlet <- cld(test1, type = "response", Letters = "ABCDE", reversed = TRUE)
+  testlet <- testlet[order(testlet$Cover),]
+  testlet$.group <- gsub(" ", "", testlet$.group)
+  testlet_df_cover <- testlet
+  testlet_df_cover <- testlet_df_cover %>% dplyr::mutate_each_(funs(factor(.)),c("Cover"))
+  
+  testlet_df_cover$Cropping.system <- rep(cs_var, 5)
+  testlet_df_cover$Year <- rep(time_var, 5)
+
+    # export lsmeans
+  write.csv(testlet_df_cover, paste0("Model-output/lsmeans/_within years/",response_var, "_", cs_var, "_", time_var,"_cover.csv"))
+
+}
+resp
+write.csv(resp, paste0("Model-output/anova/_within years/_all.csv"))
+
+
+
+file_list <- list.files(path = "Model-output/lsmeans/_within years", pattern = "\\.csv$", full.names = TRUE)
+all_data <- readr::read_csv(file_list) %>%
+  bind_rows() 
+
+all_data$Cropping.system <- as.factor(all_data$Cropping.system)
+all_data$Cropping.system <- factor(all_data$Cropping.system, levels(all_data$Cropping.system)[c(1,4,3,2)])
+all_data$Cover <- as.factor(all_data$Cover)
+all_data$Cover <- factor(all_data$Cover, levels(all_data$Cover)[c(2,4,1,5,3)])
+all_data$Year <- as.factor(all_data$Year)
+
+all_data <- all_data[order(all_data$Cropping.system, all_data$Year, all_data$Cover),]
+
+all_data <- all_data %>%
+  mutate(
+    .group2 = ifelse(Cropping.system == "Soybean-Soybean-Soybean", NA, .group),
+    )
+all_data$.group2[which(all_data$Year %in% c(2022, 2023))] <- NA
+
 # plot
 p <- ggplot(dat2, 
             aes(x=Cover, y=Yield_Mgha, fill=Cover)) +
@@ -865,10 +937,13 @@ p <- ggplot(dat2,
         strip.text.y=element_text(size=7)) +
   geom_errorbar(inherit.aes=FALSE,data=dat3, width=0,
                 aes(x=Cover, ymin=response-SE, ymax=response+SE)) +
-  geom_point(inherit.aes=FALSE,data=dat3, x=rep(1:5, 3_4), y=dat3$response,
-             fill=rep(covercols[1:5], 3_4), col = "black",size = 2,shape = 21) + 
-  geom_text(inherit.aes=FALSE, x=rep(c(1:5), 3_4), y=c(dat3$response + dat3$SE+1.5), size=2.5, fontface="italic", 
-            data=dat4, aes(label = round(response,0))) # yield in Mg ha-1
+  geom_text(inherit.aes=FALSE, data=all_data, aes(x=Cover, y=response - SE - 1, label = .group2), 
+            size=2) + # tukey's letters
+  geom_point(inherit.aes=FALSE,data=dat3, x=rep(1:5, 3*4), y=dat3$response,
+             fill=rep(covercols[1:5], 3*4), col = "black",size = 2,shape = 21) + 
+  geom_text(inherit.aes=FALSE, x=rep(c(1:5), 3*4), y=c(dat3$response + dat3$SE+1.5), size=2.5, fontface="italic", 
+            data=dat4, aes(label = round(response,0)))  # yield in Mg ha-1
+
 p
 
 
